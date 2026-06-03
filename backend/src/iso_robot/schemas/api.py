@@ -175,3 +175,176 @@ class SeedRiskLibraryResponse(BaseModel):
 class IssuesImportResponse(BaseModel):
     created: int
     errors: List[str] = Field(default_factory=list)
+
+# =============================================================================
+# NEW SCHEMAS — Risk Portal API Delivery
+# =============================================================================
+
+# ── Standard API Response Wrapper ─────────────────────────────────────────────
+
+class ApiResponse(BaseModel):
+    """Standard response wrapper used by all new APIs."""
+    status: str = "success"
+    message: str = ""
+    data: Dict[str, Any] = Field(default_factory=dict)
+    errors: List[Dict[str, Any]] = Field(default_factory=list)
+
+
+# ── Auth ──────────────────────────────────────────────────────────────────────
+
+class LoginRequest(BaseModel):
+    username: str = Field(..., description="User email address")
+    password: str
+    login_source: Optional[str] = Field(default="web_portal")
+
+
+class LoginFolders(BaseModel):
+    control_documents_folder: str
+    issues_folder: str
+    risk_outputs_folder: str
+
+
+class LoginData(BaseModel):
+    access_token: str
+    user_id: str
+    user_name: Optional[str] = None
+    client_org_id: str
+    client_org_name: Optional[str] = None
+    tenant_id: Optional[str] = None
+    folders: Optional[LoginFolders] = None
+    roles: List[str] = Field(default_factory=list)
+
+
+# ── Organisation ──────────────────────────────────────────────────────────────
+
+class OrgCreateRequest(BaseModel):
+    name: str
+    slug: str
+    industry: Optional[str] = None
+    region: Optional[str] = None
+
+
+class OrgResponse(BaseModel):
+    id: str
+    name: str
+    slug: str
+    industry: Optional[str] = None
+    region: Optional[str] = None
+    created_at: str
+
+
+# ── User Registration ─────────────────────────────────────────────────────────
+
+class UserCreateRequest(BaseModel):
+    email: str
+    password: str
+    full_name: Optional[str] = None
+    client_org_id: str
+    role: str = "analyst"
+
+
+class UserResponse(BaseModel):
+    id: str
+    email: str
+    full_name: Optional[str] = None
+    client_org_id: str
+    role: str
+    created_at: str
+
+
+# ── Business Demography ───────────────────────────────────────────────────────
+
+class LocationItem(BaseModel):
+    country: str
+    city: Optional[str] = None
+    location_type: Optional[str] = None
+
+
+class ProcessItem(BaseModel):
+    process_name: str
+    process_owner: Optional[str] = None
+
+
+class DemographyUpdateRequest(BaseModel):
+    client_org_id: str
+    tenant_id: Optional[str] = None
+    updated_by: Optional[str] = None
+    business_demography: Dict[str, Any] = Field(default_factory=dict)
+
+
+class DemographyResponse(BaseModel):
+    id: str
+    client_org_id: str
+    industry: Optional[str] = None
+    sub_industry: Optional[str] = None
+    employee_count: Optional[str] = None
+    annual_revenue: Optional[str] = None
+    headquarters_country: Optional[str] = None
+    headquarters_city: Optional[str] = None
+    ownership_type: Optional[str] = None
+    regulatory_region: Optional[str] = None
+    website: Optional[str] = None
+    functions: List[Any] = Field(default_factory=list)
+    locations: List[Any] = Field(default_factory=list)
+    processes: List[Any] = Field(default_factory=list)
+    regulatory_frameworks: List[Any] = Field(default_factory=list)
+    notes: Optional[str] = None
+    created_at: str
+    updated_at: str
+
+
+# ── Control Document Upload ───────────────────────────────────────────────────
+
+class ControlDocumentResponse(BaseModel):
+    id: str
+    client_org_id: str
+    filename: str
+    document_path: str
+    document_type: Optional[str] = None
+    document_category: Optional[str] = None
+    document_version: Optional[str] = None
+    processing_status: str
+    created_at: str
+
+
+# ── Issue Scoring ─────────────────────────────────────────────────────────────
+
+class IssueScoreRequest(BaseModel):
+    client_org_id: str
+    tenant_id: Optional[str] = None
+    requested_by: Optional[str] = None
+    issue_ids: Optional[List[str]] = None
+    scoring_framework_id: Optional[str] = None
+
+
+# ── Risk Upload ───────────────────────────────────────────────────────────────
+
+class SelectedRisk(BaseModel):
+    issue_id: Optional[str] = None
+    risk_title: str
+    risk_description: Optional[str] = None
+    risk_rating: Optional[str] = None
+    risk_score: Optional[int] = None
+    mapped_controls: List[str] = Field(default_factory=list)
+    mapped_functions: List[str] = Field(default_factory=list)
+    mapped_locations: List[str] = Field(default_factory=list)
+    mapped_processes: List[str] = Field(default_factory=list)
+    user_action: Optional[str] = None
+
+
+class RiskUploadRequest(BaseModel):
+    client_org_id: str
+    tenant_id: Optional[str] = None
+    submitted_by: Optional[str] = None
+    selected_risks: List[SelectedRisk]
+
+
+class RiskResponse(BaseModel):
+    id: str
+    client_org_id: str
+    issue_id: Optional[str] = None
+    risk_title: str
+    risk_description: Optional[str] = None
+    risk_rating: Optional[str] = None
+    risk_score: Optional[int] = None
+    created_at: str

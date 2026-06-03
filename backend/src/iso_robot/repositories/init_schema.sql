@@ -1,5 +1,9 @@
 PRAGMA foreign_keys = ON;
 
+-- ─────────────────────────────────────────────────────────────────────────────
+-- EXISTING TABLES (kept exactly as they were, with client_org_id added)
+-- ─────────────────────────────────────────────────────────────────────────────
+
 CREATE TABLE IF NOT EXISTS documents (
   id TEXT PRIMARY KEY,
   filename TEXT NOT NULL,
@@ -10,11 +14,13 @@ CREATE TABLE IF NOT EXISTS documents (
   framework TEXT,
   status TEXT NOT NULL DEFAULT 'local',
   source_url TEXT,
+  client_org_id TEXT,
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
 CREATE INDEX IF NOT EXISTS idx_documents_path ON documents(path);
 CREATE INDEX IF NOT EXISTS idx_documents_created_at ON documents(created_at);
+CREATE INDEX IF NOT EXISTS idx_documents_org ON documents(client_org_id);
 
 CREATE TABLE IF NOT EXISTS controls (
   id TEXT PRIMARY KEY,
@@ -23,11 +29,13 @@ CREATE TABLE IF NOT EXISTS controls (
   section_ref TEXT,
   framework TEXT,
   source_page INTEGER,
+  client_org_id TEXT,
   created_at TEXT NOT NULL DEFAULT (datetime('now')),
   FOREIGN KEY (document_id) REFERENCES documents(id) ON DELETE CASCADE
 );
 
 CREATE INDEX IF NOT EXISTS idx_controls_document_id ON controls(document_id);
+CREATE INDEX IF NOT EXISTS idx_controls_org ON controls(client_org_id);
 
 CREATE TABLE IF NOT EXISTS risk_sources (
   id TEXT PRIMARY KEY,
@@ -35,6 +43,7 @@ CREATE TABLE IF NOT EXISTS risk_sources (
   source_type TEXT,
   url TEXT,
   metadata_json TEXT NOT NULL DEFAULT '{}',
+  client_org_id TEXT,
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
@@ -46,11 +55,13 @@ CREATE TABLE IF NOT EXISTS issues (
   effective_date TEXT,
   region_hint TEXT,
   raw_payload_json TEXT NOT NULL DEFAULT '{}',
+  client_org_id TEXT,
   created_at TEXT NOT NULL DEFAULT (datetime('now')),
   FOREIGN KEY (risk_source_id) REFERENCES risk_sources(id) ON DELETE SET NULL
 );
 
 CREATE INDEX IF NOT EXISTS idx_issues_risk_source_id ON issues(risk_source_id);
+CREATE INDEX IF NOT EXISTS idx_issues_org ON issues(client_org_id);
 
 CREATE TABLE IF NOT EXISTS issue_classifications (
   id TEXT PRIMARY KEY,
@@ -70,6 +81,7 @@ CREATE TABLE IF NOT EXISTS candidate_risks (
   description TEXT,
   domain TEXT,
   confidence REAL,
+  client_org_id TEXT,
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
@@ -111,3 +123,147 @@ CREATE TABLE IF NOT EXISTS jobs (
 
 CREATE INDEX IF NOT EXISTS idx_jobs_status ON jobs(status);
 CREATE INDEX IF NOT EXISTS idx_jobs_created_at ON jobs(created_at);
+
+-- ─────────────────────────────────────────────────────────────────────────────
+-- NEW TABLES
+-- ─────────────────────────────────────────────────────────────────────────────
+
+CREATE TABLE IF NOT EXISTS client_organizations (
+  id TEXT PRIMARY KEY,
+  name TEXT NOT NULL,
+  slug TEXT NOT NULL UNIQUE,
+  industry TEXT,
+  region TEXT,
+  created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
+CREATE TABLE IF NOT EXISTS users (
+  id TEXT PRIMARY KEY,
+  email TEXT NOT NULL UNIQUE,
+  hashed_password TEXT NOT NULL,
+  full_name TEXT,
+  client_org_id TEXT NOT NULL,
+  role TEXT NOT NULL DEFAULT 'analyst',
+  is_active INTEGER NOT NULL DEFAULT 1,
+  created_at TEXT NOT NULL DEFAULT (datetime('now')),
+  FOREIGN KEY (client_org_id) REFERENCES client_organizations(id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_users_email ON users(email);
+CREATE INDEX IF NOT EXISTS idx_users_org ON users(client_org_id);
+
+CREATE TABLE IF NOT EXISTS tenant_mapping (
+  id TEXT PRIMARY KEY,
+  client_org_id TEXT NOT NULL,
+  tenant_id TEXT NOT NULL UNIQUE,
+  created_at TEXT NOT NULL DEFAULT (datetime('now')),
+  FOREIGN KEY (client_org_id) REFERENCES client_organizations(id)
+);
+
+CREATE TABLE IF NOT EXISTS folder_mapping (
+  id TEXT PRIMARY KEY,
+  client_org_id TEXT NOT NULL,
+  folder_type TEXT NOT NULL,
+  folder_path TEXT NOT NULL,
+  created_at TEXT NOT NULL DEFAULT (datetime('now')),
+  FOREIGN KEY (client_org_id) REFERENCES client_organizations(id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_folder_mapping_org ON folder_mapping(client_org_id);
+
+CREATE TABLE IF NOT EXISTS business_demography (
+  id TEXT PRIMARY KEY,
+  client_org_id TEXT NOT NULL UNIQUE,
+  industry TEXT,
+  sub_industry TEXT,
+  employee_count TEXT,
+  annual_revenue TEXT,
+  headquarters_country TEXT,
+  headquarters_city TEXT,
+  ownership_type TEXT,
+  regulatory_region TEXT,
+  website TEXT,
+  functions_json TEXT NOT NULL DEFAULT '[]',
+  locations_json TEXT NOT NULL DEFAULT '[]',
+  processes_json TEXT NOT NULL DEFAULT '[]',
+  regulatory_frameworks_json TEXT NOT NULL DEFAULT '[]',
+  notes TEXT,
+  updated_at TEXT NOT NULL DEFAULT (datetime('now')),
+  created_at TEXT NOT NULL DEFAULT (datetime('now')),
+  FOREIGN KEY (client_org_id) REFERENCES client_organizations(id)
+);
+
+CREATE TABLE IF NOT EXISTS control_documents (
+  id TEXT PRIMARY KEY,
+  client_org_id TEXT NOT NULL,
+  filename TEXT NOT NULL,
+  document_path TEXT NOT NULL,
+  document_type TEXT,
+  document_category TEXT,
+  document_version TEXT,
+  uploaded_by TEXT,
+  processing_status TEXT NOT NULL DEFAULT 'ready_for_extraction',
+  created_at TEXT NOT NULL DEFAULT (datetime('now')),
+  FOREIGN KEY (client_org_id) REFERENCES client_organizations(id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_control_documents_org ON control_documents(client_org_id);
+
+CREATE TABLE IF NOT EXISTS issue_scores (
+  id TEXT PRIMARY KEY,
+  issue_id TEXT NOT NULL,
+  client_org_id TEXT,
+  risk_score INTEGER,
+  risk_rating TEXT,
+  likelihood_score INTEGER,
+  impact_score INTEGER,
+  velocity_score INTEGER,
+  mapped_functions_json TEXT NOT NULL DEFAULT '[]',
+  mapped_locations_json TEXT NOT NULL DEFAULT '[]',
+  mapped_processes_json TEXT NOT NULL DEFAULT '[]',
+  recommended_risk_title TEXT,
+  scoring_run_id TEXT,
+  created_at TEXT NOT NULL DEFAULT (datetime('now')),
+  FOREIGN KEY (issue_id) REFERENCES issues(id) ON DELETE CASCADE
+);
+
+CREATE INDEX IF NOT EXISTS idx_issue_scores_issue ON issue_scores(issue_id);
+CREATE INDEX IF NOT EXISTS idx_issue_scores_org ON issue_scores(client_org_id);
+
+CREATE TABLE IF NOT EXISTS risks (
+  id TEXT PRIMARY KEY,
+  client_org_id TEXT NOT NULL,
+  issue_id TEXT,
+  risk_title TEXT NOT NULL,
+  risk_description TEXT,
+  risk_rating TEXT,
+  risk_score INTEGER,
+  mapped_controls_json TEXT NOT NULL DEFAULT '[]',
+  mapped_functions_json TEXT NOT NULL DEFAULT '[]',
+  mapped_locations_json TEXT NOT NULL DEFAULT '[]',
+  mapped_processes_json TEXT NOT NULL DEFAULT '[]',
+  submitted_by TEXT,
+  created_at TEXT NOT NULL DEFAULT (datetime('now')),
+  FOREIGN KEY (client_org_id) REFERENCES client_organizations(id),
+  FOREIGN KEY (issue_id) REFERENCES issues(id) ON DELETE SET NULL
+);
+
+CREATE INDEX IF NOT EXISTS idx_risks_org ON risks(client_org_id);
+
+CREATE TABLE IF NOT EXISTS api_audit_log (
+  id TEXT PRIMARY KEY,
+  request_id TEXT NOT NULL,
+  api_name TEXT NOT NULL,
+  client_org_id TEXT,
+  tenant_id TEXT,
+  requested_by TEXT,
+  request_timestamp TEXT NOT NULL,
+  completion_timestamp TEXT,
+  status TEXT,
+  input_metadata_json TEXT NOT NULL DEFAULT '{}',
+  output_metadata_json TEXT NOT NULL DEFAULT '{}',
+  error_details TEXT
+);
+
+CREATE INDEX IF NOT EXISTS idx_audit_log_org ON api_audit_log(client_org_id);
+CREATE INDEX IF NOT EXISTS idx_audit_log_timestamp ON api_audit_log(request_timestamp);

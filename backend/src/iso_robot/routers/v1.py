@@ -14,26 +14,19 @@ from iso_robot.handlers import (
     summary,
     system_hints,
 )
+from iso_robot.handlers import auth, org, controls_org
 
 router = APIRouter()
+
+# ── Existing routes (DO NOT CHANGE) ──────────────────────────────────────────
 
 router.add_api_route("/health", health.health, methods=["GET"], tags=["health"])
 router.add_api_route("/summary", summary.dashboard_summary, methods=["GET"], tags=["summary"])
 router.add_api_route("/system/status", system_hints.system_status, methods=["GET"], tags=["system"])
 
 router.add_api_route("/documents", documents.list_documents, methods=["GET"], tags=["documents"])
-router.add_api_route(
-    "/documents/scan",
-    documents.scan_documents,
-    methods=["POST"],
-    tags=["documents"],
-)
-router.add_api_route(
-    "/documents/{doc_id}/file",
-    documents.get_document_file,
-    methods=["GET"],
-    tags=["documents"],
-)
+router.add_api_route("/documents/scan", documents.scan_documents, methods=["POST"], tags=["documents"])
+router.add_api_route("/documents/{doc_id}/file", documents.get_document_file, methods=["GET"], tags=["documents"])
 router.add_api_route("/documents/{doc_id}", documents.get_document, methods=["GET"], tags=["documents"])
 
 router.add_api_route("/jobs", jobs.create_job_handler, methods=["POST"], tags=["jobs"])
@@ -70,3 +63,63 @@ router.add_api_route("/candidate-risks", risk.list_candidate_risks, methods=["GE
 router.add_api_route("/risk-discovery/run", risk.run_risk_discovery, methods=["POST"], tags=["risk-discovery"])
 
 router.add_api_route("/discovery-export", export.discovery_export, methods=["GET"], tags=["export"])
+
+# ── NEW ROUTES — Risk Portal API Delivery ─────────────────────────────────────
+
+# Auth (API 1)
+router.add_api_route("/auth/login", auth.login, methods=["POST"], tags=["auth"])
+router.add_api_route("/auth/register", auth.register_user, methods=["POST"], tags=["auth"])
+
+# Organisations
+router.add_api_route("/orgs", org.create_org, methods=["POST"], tags=["orgs"])
+router.add_api_route("/orgs", org.list_orgs, methods=["GET"], tags=["orgs"])
+
+# Control Documents (API 2)
+router.add_api_route(
+    "/control-documents/upload",
+    org.upload_control_document,
+    methods=["POST"],
+    tags=["control-documents"],
+)
+router.add_api_route(
+    "/control-documents/{client_org_id}",
+    org.list_control_documents,
+    methods=["GET"],
+    tags=["control-documents"],
+)
+
+# Business Demography (API 3)
+router.add_api_route(
+    "/business-demography/update",
+    org.update_demography,
+    methods=["POST"],
+    tags=["business-demography"],
+)
+router.add_api_route(
+    "/business-demography/{org_id}",
+    org.get_demography,
+    methods=["GET"],
+    tags=["business-demography"],
+)
+
+# Org-aware Control Extraction (API 4 — Nishant's requirement)
+router.add_api_route(
+    "/control-documents/extract/{client_org_id}",
+    controls_org.extract_controls_for_org,
+    methods=["POST"],
+    tags=["control-extraction"],
+)
+
+# Risk Upload (API 10)
+router.add_api_route(
+    "/risks/upload-selected",
+    org.upload_risks,
+    methods=["POST"],
+    tags=["risks"],
+)
+router.add_api_route(
+    "/risks/{client_org_id}",
+    org.list_risks,
+    methods=["GET"],
+    tags=["risks"],
+)

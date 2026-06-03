@@ -10,7 +10,20 @@ from iso_robot.repositories.db import get_db
 from iso_robot.repositories.control_repository import ControlRepository
 from iso_robot.repositories.document_repository import DocumentRepository
 from iso_robot.repositories.job_repository import JobRepository
+from iso_robot.repositories.org_repository import (
+    AuditLogRepository,
+    ControlDocumentRepository,
+    DemographyRepository,
+    FolderRepository,
+    IssueScoreRepository,
+    OrgRepository,
+    RiskRepository,
+    TenantRepository,
+    UserRepository,
+)
 
+
+# ── Existing dependencies (DO NOT CHANGE) ────────────────────────────────────
 
 async def get_document_repo(
     db: Annotated[aiosqlite.Connection, Depends(get_db)],
@@ -32,3 +45,59 @@ async def get_control_repo(
 
 def get_app_settings() -> Settings:
     return get_settings()
+
+
+# ── New dependencies ──────────────────────────────────────────────────────────
+
+async def get_org_repo(
+    db: Annotated[aiosqlite.Connection, Depends(get_db)],
+) -> OrgRepository:
+    return OrgRepository(db)
+
+
+async def get_user_repo(
+    db: Annotated[aiosqlite.Connection, Depends(get_db)],
+) -> UserRepository:
+    return UserRepository(db)
+
+
+async def get_tenant_repo(
+    db: Annotated[aiosqlite.Connection, Depends(get_db)],
+) -> TenantRepository:
+    return TenantRepository(db)
+
+
+async def get_folder_repo(
+    db: Annotated[aiosqlite.Connection, Depends(get_db)],
+) -> FolderRepository:
+    return FolderRepository(db)
+
+
+async def get_demography_repo(
+    db: Annotated[aiosqlite.Connection, Depends(get_db)],
+) -> DemographyRepository:
+    return DemographyRepository(db)
+
+
+async def get_control_document_repo(
+    db: Annotated[aiosqlite.Connection, Depends(get_db)],
+) -> ControlDocumentRepository:
+    return ControlDocumentRepository(db)
+
+
+async def get_issue_score_repo(
+    db: Annotated[aiosqlite.Connection, Depends(get_db)],
+) -> IssueScoreRepository:
+    return IssueScoreRepository(db)
+
+
+async def get_risk_repo(
+    db: Annotated[aiosqlite.Connection, Depends(get_db)],
+) -> RiskRepository:
+    return RiskRepository(db)
+
+
+async def get_audit_repo(
+    db: Annotated[aiosqlite.Connection, Depends(get_db)],
+) -> AuditLogRepository:
+    return AuditLogRepository(db)
