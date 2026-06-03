@@ -1,0 +1,102 @@
+from __future__ import annotations
+
+from pathlib import Path
+from typing import Annotated, Any, Optional
+
+import aiosqlite
+from fastapi import BackgroundTasks, Depends
+
+from iso_robot.config import Settings
+from iso_robot.deps import get_app_settings, get_db, get_job_repo
+from iso_robot.domain.job_runner import execute_job
+from iso_robot.domain.job_service import create_job
+from iso_robot.domain.poc_import import default_poc_path
+from iso_robot.domain.poc_seed import seed_risk_library_catalog
+from iso_robot.errors import APIError
+from iso_robot.repositories.job_repository import JobRepository
+from iso_robot.repositories.risk_repository import (
+    CandidateRiskRepository,
+    RiskDiscoveryResultRepository,
+    RiskLibraryRepository,
+)
+from iso_robot.schemas.api import CandidateRiskListItem, JobResponse, RiskLibraryListItem, SeedRiskLibraryResponse
+
+
+def _latest_result_by_candidate(rows: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    """First row per candidate_risk_id (rows sorted newest first)."""
+    out: dict[str, dict[str, Any]] = {}
+    for r in rows:
+        cid = str(r["candidate_risk_id"])
+        if cid not in out:
+            out[cid] = r
+    return out
+
+
+async def list_candidate_risks(
+    db: Annotated[aiosqlite.Connection, Depends(get_db)],
+    limit: int = 500,
+    offset: int = 0,
+) -> list[CandidateRiskListItem]:
+    cand = CandidateRiskRepository(db)
+    res_repo = RiskDiscoveryResultRepository(db)
+    rows = await cand.list_all(limit=limit, offset=offset)
+    if not rows:
+        return []
+    ids = [str(r["id"]) for r in rows]
+    raw_results = await res_repo.list_for_candidates(ids)
+    by_c = _latest_result_by_candidate(raw_results)
+    out: list[CandidateRiskListItem] = []
+    for r in rows:
+        mr = by_c.get(str(r["id"]))
+        out.append(
+            CandidateRiskListItem(
+                id=str(r["id"]),
+                title=r.get("title"),
+                description=r.get("description"),
+                domain=r.get("domain"),
+                confidence=r.get("confidence"),
+                created_at=str(r["created_at"]),
+                issue_ids=list(r.get("issue_ids") or []),
+                match_status=mr.get("match_status") if mr else None,
+                library_risk_id=str(mr["library_risk_id"]) if mr and mr.get("library_risk_id") else None,
+                match_rationale=mr.get("rationale") if mr else None,
+                bm25_score=float(mr["bm25_score"]) if mr and mr.get("bm25_score") is not None else None,
+            )
+        )
+    return out
+
+
+async def list_risk_library(
+    db: Annotated[aiosqlite.Connection, Depends(get_db)],
+    limit: int = 2000,
+    offset: int = 0,
+) -> list[RiskLibraryListItem]:
+    repo = RiskLibraryRepository(db)
+    rows = await repo.list_all(limit=limit, offset=offset)
+    keys = ("id", "industry", "risk_domain", "title", "description", "tags", "source_ref", "created_at")
+    return [RiskLibraryListItem(**{k: r[k] for k in keys}) for r in rows]
+
+
+async def seed_risk_library_handler(
+    db: Annotated[aiosqlite.Connection, Depends(get_db)],
+    settings: Annotated[Settings, Depends(get_app_settings)],
+    path: Optional[str] = None,
+) -> SeedRiskLibraryResponse:
+    p = Path(path).expanduser() if path else default_poc_path()
+    if not p.is_file():
+        alt = Path(settings.resolved_documents_dir().parent) / "ISO ROBOT RISK POC.xlsx"
+        p = alt if alt.is_file() else p
+    if not p.is_file():
+        raise APIError(f"POC workbook not found: {p}", code="not_found", status_code=404)
+    repo_root = p.parent
+    stats = await seed_risk_library_catalog(db, poc_path=p, repo_root=repo_root)
+    return SeedRiskLibraryResponse(**stats)
+
+
+async def run_risk_discovery(
+    background_tasks: BackgroundTasks,
+    jobs: Annotated[JobRepository, Depends(get_job_repo)],
+) -> JobResponse:
+    row = await create_job(jobs, job_type="risk_discovery", payload={})
+    background_tasks.add_task(execute_job, row["id"], "risk_discovery", {})
+    return JobResponse(**row)
