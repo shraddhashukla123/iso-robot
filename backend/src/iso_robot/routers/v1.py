@@ -69,6 +69,7 @@ router.add_api_route("/discovery-export", export.discovery_export, methods=["GET
 # Auth (API 1)
 router.add_api_route("/auth/login", auth.login, methods=["POST"], tags=["auth"])
 router.add_api_route("/auth/register", auth.register_user, methods=["POST"], tags=["auth"])
+router.add_api_route("/auth/me", auth.me, methods=["GET"], tags=["auth"])
 
 # Organisations
 router.add_api_route("/orgs", org.create_org, methods=["POST"], tags=["orgs"])

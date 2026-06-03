@@ -4,7 +4,7 @@ from typing import Annotated
 
 from fastapi import Depends
 
-from iso_robot.deps import get_folder_repo, get_org_repo, get_tenant_repo, get_user_repo, get_audit_repo
+from iso_robot.deps import get_folder_repo, get_org_repo, get_tenant_repo, get_user_repo, get_audit_repo, get_current_user
 from iso_robot.errors import APIError
 from iso_robot.helpers.auth import create_token, hash_password, verify_password
 from iso_robot.repositories.org_repository import (
@@ -133,4 +133,23 @@ async def register_user(
             role=user["role"],
             created_at=user["created_at"],
         ).model_dump(),
+    )
+
+async def me(
+    current_user: Annotated[dict, Depends(get_current_user)],
+    org_repo: Annotated[OrgRepository, Depends(get_org_repo)],
+) -> ApiResponse:
+    """Validate the session and return the current user (also slides the window)."""
+    org = await org_repo.get_by_id(current_user["client_org_id"])
+    return ApiResponse(
+        status="success",
+        message="OK",
+        data={
+            "user_id": current_user["id"],
+            "user_name": current_user.get("full_name"),
+            "email": current_user["email"],
+            "client_org_id": current_user["client_org_id"],
+            "client_org_name": org["name"] if org else None,
+            "roles": [current_user["role"]],
+        },
     )
