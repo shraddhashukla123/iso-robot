@@ -18,3 +18,6 @@ frontend/node_modules/
 *.zip
 .cursor/
 .claude/
+final_control_output(Sheet1).csv
+data/curated/
+all-docs/
