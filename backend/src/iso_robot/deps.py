@@ -128,3 +128,10 @@ async def get_current_user(
     if not user or not user.get("is_active", 1):
         raise APIError("User not found or inactive", code="UNAUTHORIZED", status_code=401)
     return user
+
+async def require_admin(
+    current_user: Annotated[dict, Depends(get_current_user)],
+) -> dict:
+    if current_user.get("role") != "admin":
+        raise APIError("Admin privileges required", code="FORBIDDEN", status_code=403)
+    return current_user

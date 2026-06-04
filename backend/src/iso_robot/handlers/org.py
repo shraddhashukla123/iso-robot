@@ -18,6 +18,7 @@ from iso_robot.deps import (
     get_risk_repo,
     get_tenant_repo,
     get_user_repo,
+    require_admin,
 )
 from iso_robot.errors import APIError
 from iso_robot.repositories.org_repository import (
@@ -50,6 +51,7 @@ async def create_org(
     folder_repo: Annotated[FolderRepository, Depends(get_folder_repo)],
     tenant_repo: Annotated[TenantRepository, Depends(get_tenant_repo)],
     settings: Annotated[Settings, Depends(get_app_settings)],
+    _admin: Annotated[dict, Depends(require_admin)],
 ) -> ApiResponse:
     """Create a new client organisation with auto-created folders and tenant mapping."""
     existing = await org_repo.get_by_slug(body.slug)
@@ -65,7 +67,7 @@ async def create_org(
     org_id = org["id"]
 
     # Create physical folders on disk
-    base = settings.resolved_database_path().parent / "org_documents" / org_id
+    base = settings.resolved_database_path().parent / "org_documents" / org["slug"]
     folder_types = {
         "control_documents": str(base / "control_documents"),
         "issues": str(base / "issues"),
