@@ -1,0 +1,2107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><link rel="canonical" href="https://www.iso.org/standard/62085.html" /><link rel="alternate" hreflang="en" href="https://www.iso.org/standard/62085.html" />
+<link rel="alternate" hreflang="ru" href="https://www.iso.org/ru/standard/62085.html" />
+<link rel="alternate" hreflang="fr" href="https://www.iso.org/fr/standard/62085.html" />
+<link rel="alternate" hreflang="es" href="https://www.iso.org/es/contents/data/standard/06/20/62085.html" />
+    <!-- *** 1. charset, viewport, title *** -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ISO 9001:2015 - Quality management systems — Requirements</title>
+
+    <!-- *** 2. Preconnect *** -->
+
+    <!-- *** 3. Synchronous JS *** -->
+    <!-- Usercentrics loader FIRST -->
+<script id="usercentrics-cmp" src="https://web.cmp.usercentrics.eu/ui/loader.js" data-settings-id="Ap6i4qiUU-LDx1" async></script>
+        
+<!-- Consent Mode: dataLayer + gtag + defaults BEFORE any Google tag -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){ dataLayer.push(arguments); }
+
+// Advanced mode defaults: deny until user acts
+gtag('consent','default',{
+  ad_storage:             'denied',
+  analytics_storage:      'denied',
+  ad_user_data:           'denied',
+  ad_personalization:     'denied',
+  functionality_storage:  'denied',
+  personalization_storage:'denied',
+  security_storage:       'granted'  
+});
+</script>
+
+<!-- Bridge: Usercentrics consent_status -> Google Consent Mode + Matomo TM -->
+<script>
+(function() {
+  if (!window.dataLayer || typeof gtag !== 'function') return;
+
+  var UC_PERFORMANCE_KEY = 'customcategory-1695b4b3-ec23-4984-bf6a-ff0df7575dfe';
+
+  function updateGcmFromConsent(obj) {
+    if (!obj) return;
+
+    var services = obj;
+    var categories = obj.ucCategory || {};
+
+    // Marketing controls Google Ads / remarketing
+    var remarketingOK =
+      services["Google Ads Remarketing"] === true ||
+      categories.marketing === true;
+
+    // Performance controls analytics
+    var analyticsOK =
+      categories[UC_PERFORMANCE_KEY] === true;
+
+    var functionalOK =
+      categories.functional === true;
+
+    var personalizationOK =
+      categories.functional === true;
+
+    gtag('consent', 'update', {
+      ad_storage:              remarketingOK ? 'granted' : 'denied',
+      ad_user_data:            remarketingOK ? 'granted' : 'denied',
+      ad_personalization:      remarketingOK ? 'granted' : 'denied',
+      analytics_storage:       analyticsOK   ? 'granted' : 'denied',
+      functionality_storage:   functionalOK  ? 'granted' : 'denied',
+      personalization_storage: personalizationOK ? 'granted' : 'denied',
+      security_storage:        'granted'
+    });
+  }
+
+  var origPush = window.dataLayer.push.bind(window.dataLayer);
+
+  window.dataLayer.push = function() {
+    var args = Array.prototype.slice.call(arguments);
+    var e = args[0];
+
+    if (e && e.event === 'consent_status') {
+      updateGcmFromConsent(e);
+
+      if (window._mtm && typeof window._mtm.push === 'function') {
+        window._mtm.push(e);
+      }
+    }
+
+    return origPush.apply(window.dataLayer, args);
+  };
+
+  for (var i = 0; i < window.dataLayer.length; i++) {
+    var item = window.dataLayer[i];
+    if (item && item.event === 'consent_status') {
+      updateGcmFromConsent(item);
+
+      if (window._mtm && typeof window._mtm.push === 'function') {
+        window._mtm.push(item);
+      }
+    }
+  }
+})();
+</script>
+
+<!-- Matomo Tag Manager (UC Manager container) -->
+<script>
+  var _mtm = window._mtm = window._mtm || [];
+  _mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
+  (function() {
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true;
+    g.src='https://cdn.matomo.cloud/iso.matomo.cloud/container_MFgeJvRK.js';
+    s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<meta name="google-site-verification" content="mQuqWPbWruZdQgZR8QwbxOWnjjxkcFiyJLHWY-cOOHk" /><!-- dataLayer for Tag Manager -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        'pageType': 'its:standard',
+        'pageLanguage': 'en',
+        'pageMode': 'live',
+        'pageServer': 'prod'
+      });
+    </script>
+
+    <!-- *** 4. Synchronous CSS *** -->
+    <link id="woodCss" rel="stylesheet" href="/modules/isoorg-template/css/wood.jahia.min.css?v4.7.1" media="screen,print,handheld" type="text/css"/>
+
+    <!-- *** 5. Preload *** -->
+    <!-- *** 6. Asynchronous JS (async, defer, type=module JS) *** -->
+<script id="woodJs" src="/modules/isoorg-template/javascript/wood.jahia.min.js?v4.7.1" defer></script>
+    <script id="customJs" src="/modules/isoorg-template/javascript/custom.js?v1" defer></script>
+
+    <script type="module">
+      let basketWidgetLoaderScript = document.createElement('script');
+      basketWidgetLoaderScript.src = '/webstore/basket-widget/assets/js/basket-widget-loader.js';
+      document.head.appendChild(basketWidgetLoaderScript);
+      basketWidgetLoaderScript.onload = () => {
+        const cartElem = document.getElementById('shoppingCart');
+        if (cartElem) {
+          cartElem.onclick = function(event) {
+            return loadWebComponentsLoaderAndWidget(this, event);
+          };
+        }
+      }
+    </script>
+
+    <!-- *** 7. Social, SEO, Open Graph, meta, etc. *** -->
+
+    <meta name="theme-color" content="#333">
+
+    <!-- favicons -->
+    <link rel="apple-touch-icon-precomposed" href="/modules/isoorg-template/img/iso/favicon/red/apple-touch-icon-152x152-precomposed.png">
+    <link rel="shortcut icon" href="/modules/isoorg-template/img/iso/favicon/red/favicon.ico">
+    <meta name="msapplication-TileColor" content="#eee">
+    <meta name="msapplication-TileImage" content="/modules/isoorg-template/img/iso/favicon/red/mstile-144x144.png">
+
+    
+<script type="application/json" id="jahia-data-ctx">{"contextPath":"","lang":"en","uilang":"en","siteUuid":"8841cb1a-0fbd-44bc-aa69-060036cc40f1","wcag":false,"ckeCfg":""}</script>
+<script type="application/json" id="jahia-data-ck">{"path":"/modules/ckeditor/javascript/","lng":"en_US"}</script>
+<script src="/javascript/initJahiaContext.js"></script>
+<link id="staticAssetCSS0" rel="stylesheet" href="/generated-resources/d6775fe7407b79ccbac42355db52434.min.css" media="screen" type="text/css"/>
+<script id="staticAssetJavascript0" src="/generated-resources/6ed47fbd5dccc5d44d4b9a03ad19da5-defer.min.js"  defer></script>
+<meta name="category" content="p" />
+  <meta name="pubdate" content="20231116" />
+  
+<!-- Twitter Card data -->
+  <meta name="twitter:site" content="@isostandards" />
+
+  <!-- Open Graph data -->
+  <meta property="og:site_name" content="ISO" />
+  <meta property="og:url" content="https://www.iso.org/standard/62085.html" />
+  <meta property="og:type" content="website" />
+  <!-- Thumbnail image (for twitter and Open Graph) -->
+    <meta name="thumbnail" content="https://www.iso.org/modules/isoorg-template/img/iso/iso-logo-og.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:image" content="https://www.iso.org/modules/isoorg-template/img/iso/iso-logo-og.png" />
+    <meta property="og:image" content="https://www.iso.org/modules/isoorg-template/img/iso/iso-logo-og.png" />
+    <meta property="og:image:alt" content="ISO logo" />
+  <!-- Title (for twitter and Open Graph) -->
+    <meta name="twitter:title" content="ISO 9001:2015" />
+    <meta property="og:title" content="ISO 9001:2015" />
+  <!-- Description (for google, twitter and Open Graph) -->
+    <meta name="twitter:description" content="Quality management systems — Requirements" />
+    <meta property="og:description" content="Quality management systems — Requirements" />
+    <meta name="description" content="Quality management systems — Requirements" />
+  <!-- Facebook admins -->
+  <meta property="fb:admins" content="100001440003305" />
+
+  
+
+<style>
+      .card-footer:has(.shippingCost.d-none):not(:has(#priceConverter)) {
+          display: none;
+      }
+      input[data-format="paper"]:checked + label::after {
+          content: " *";
+          color: #c79332;
+      }
+  </style>
+
+<script src="https://www.google.com/recaptcha/api.js?render=6Lfvyx8qAAAAAHOXkwbvVobjfLbVzBEnEVRuLtNA" defer></script>
+
+<script type="text/plain" data-usercentrics="Vimeo" src="/modules/fwk-module/javascript/lite-vimeo-embed.js"></script>
+  <script type="module">
+   // Display a consent required notice on click
+   // Targets `figure.figure-video .cmp-notice`
+   document.addEventListener('DOMContentLoaded', function () {
+     document.querySelectorAll('figure.figure-video').forEach(function (figure) {
+       figure.addEventListener('click', function () {
+         const notice = figure.querySelector('.cmp-notice');
+         if (notice) {
+          notice.style.display = 'block';
+         }
+        }, { once: true }); // optional: show only on first click
+     });
+   });
+  </script>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+        "@type": "Question",
+        "name": "Who should use the ISO 9001 standard?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Any organization that wants to improve its quality management system, meet customer and applicable statutory and regulatory requirements, and enhance customer satisfaction can use the ISO 9001 standard. It is suitable for organizations of any size, and applies to all sectors, including manufacturing, services, healthcare, education, government, and non-profit organizations. ISO 9001 can also be used by certification bodies or other third parties to assess an organization’s conformity with this International Standard."
+        }
+      },{
+        "@type": "Question",
+        "name": "Is there a standard adapting the requirements of ISO 9001 to my sector?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ISO has a range of standards for quality management systems that are based on ISO 9001 and adapted to specific sectors and industries. These include: ISO 13485 on medical devices  ISO/TS 54001 on elections at all levels of government ISO 18091 on local government sector applications ISO 22163 on railway sector applications  ISO 29001 on petroleum, petrochemical and natural gas-related products and services ISO/IEC/IEEE 90003 on computer software"
+        }
+      },{
+        "@type": "Question",
+        "name": "What topics does ISO 9001 cover?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The ISO 9001 standard specifies requirements for the establishment, maintenance, and continuous improvement of a quality management system, covering a wide range of topics including: Context of the organization: ISO 9001 requires organizations to determine the external and internal factors that affect their ability to achieve the intended results of their quality management system. Leadership: The standard emphasizes the importance of leadership in implementing and maintaining a quality management system. Planning: The quality management system must include measures designed to achieve an organization’s quality objectives and continuously improve the system’s effectiveness. Support: ISO 9001 addresses issues such as resources, competence, awareness, communication and documented information. Operation: The processes necessary to meet customer requirements and increase customer satisfaction must be planned, implemented and controlled. Performance evaluation: The standard requires organizations to monitor, measure, analyze and evaluate the performance and effectiveness of their quality management system. Improvement: ISO 9001 emphasizes the importance of continuously increasing the effectiveness of the quality management system based on the results of performance evaluation and other data sources. Overall, ISO 9001 helps organizations address all aspects of managing the quality of their products and services, with an emphasis on customer satisfaction and constant enhancement of the quality management system."
+        }
+      },{
+        "@type": "Question",
+        "name": "Why is another revision for ISO 9001 under development?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The fifth and current edition of ISO 9001 was published in 2015. Ensuring that all ISO standards remain current and relevant for the marketplace is crucial. After extensive international consultation, a consensus was reached in August 2023 that revising the standard would add value. This revision aims to align ISO 9001 with the current needs of standard users and the communities they serve."
+        }
+      },{
+        "@type": "Question",
+        "name": "When will the next edition of ISO 9001 be published?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The revised version of ISO 9001 is expected to be published in September 2026."
+        }
+      },{
+        "@type": "Question",
+        "name": "I am certified to ISO 9001:2015. What does this revision mean for me?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The publication of the revised standard will present an excellent opportunity for you to review and update your quality management system. Take this chance to ensure that your system effectively addresses any changes and aligns well with your needs, as well as those of your customers and other stakeholders. At the time of publication, ample information will be provided about the updates made and how they may impact organizations. To stay informed and receive timely notifications, we invite you to subscribe to our email updates. In terms of validity of their certificates, organizations certified to ISO 9001:2015 will be granted a transition period to migrate their quality management system to the new edition of the standard."
+        }
+      },{
+        "@type": "Question",
+        "name": "What is ISO 9001 certification and does my organization need to get certified?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Certification to ISO 9001 is one way to demonstrate to stakeholders and customers that you are committed and able to consistently deliver high quality products or services. Holding a certificate issued by an accredited conformity assessment body may bring an additional layer of confidence, as an accreditation body has provided independent confirmation of the certification body’s competence. As with other ISO management system standards, companies implementing ISO 9001 can choose whether they want to go through a certification process or not. Checking that the system works is a vital part of ISO 9001. The standard recommends that an organization performs internal audits to check how its quality management system is working. An organization may decide to invite an independent certification body to verify that it is in conformity with the standard, but there is no requirement for this. Alternatively, you might invite your clients to audit the quality system for themselves. As in other contexts, standards should always be referred to with their full reference in statements on certification such as “certified to ISO 9001:2015” (not just: “certified to ISO 9001). If you wish to use a logo to demonstrate certification, please contact the certification body that issued your certificate. See full details about use of the ISO logo."
+        }
+      },{
+        "@type": "Question",
+        "name": "Where can I find help with auditing ISO 9001?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Support on auditing quality management systems can be found on the website of the ISO 9001 Auditing Practices Group. This is an informal group of quality management system experts, auditors and practitioners from ISO/TC 176 and the International Accreditation Forum."
+        }
+      },{
+        "@type": "Question",
+        "name": "What is the ISO definition of quality?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A definition of quality is part of the core vocabulary for quality management which can be found in ISO 9000:2015  and applies to all ISO quality management standards, including ISO 9001. It says that quality is the “degree to which a set of inherent characteristics [or distinguishing features] of an object”, which in turn is defined as anything perceivable or conceivable, such as a product, service, process, person, organization, system or resource, “fulfils requirements.”"
+        }
+      },{
+        "@type": "Question",
+        "name": "What is the difference between ISO 9001 and ISO 14001?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ISO 9001 and ISO 14001 are both International Standards for organizational management but they have different goals. ISO 9001 helps organizations improve their quality management and customer satisfaction. ISO 14001 helps organizations reduce their environmental impact and promote sustainability. ISO standards that look at different types of management systems, such as ISO 9001 for quality and ISO 14001 for environmental management, are all structured in the same way. This means that companies using one ISO management standard will find it easy to integrate other aspects of organizational management into their existing management system."
+        }
+      },{
+        "@type": "Question",
+        "name": "What is the difference between ISO 9001 and ISO 13485?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The International Standards ISO 9001 and ISO 13485 both define requirements for quality management systems, but one has a much broader user group than the other. ISO 9001 provides a quality management framework that can apply to organizations of any size or sector. ISO 13485, on the other hand, has been developed specifically for the medical device industry with a focus on regulatory compliance. The standard helps ensure the safety and effectiveness of medical devices, including risk management, traceability and process validation. Compared to ISO 9001, it contains additional requirements specific to organizations involved in the life cycle of medical devices, whereas elements of ISO 9001 that are not relevant as regulatory requirements are not part of ISO 13485. In short, while ISO 9001 sets out a general framework for quality management, ISO 13485 provides specific guidance for the medical device industry."
+        }
+      }
+    ]
+}
+</script>
+
+<!-- Start VWO Async SmartCode -->
+<link rel="preconnect" href="https://dev.visualwebsiteoptimizer.com" />
+<script type='text/javascript' id='vwoCode'>
+window._vwo_code || (function() {
+var account_id=794551,
+version=2.0,
+settings_tolerance=2000,
+hide_element='body',
+hide_element_style = 'opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important',
+/* DO NOT EDIT BELOW THIS LINE */
+f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+'_settings',cc={};try{var c=JSON.parse(localStorage.getItem('_vwo_'+account_id+'_config'));cc=c&&typeof c==='object'?c:{}}catch(e){}var stT=cc.stT==='session'?w.sessionStorage:w.localStorage;code={use_existing_jquery:function(){return typeof use_existing_jquery!=='undefined'?use_existing_jquery:undefined},library_tolerance:function(){return typeof library_tolerance!=='undefined'?library_tolerance:undefined},settings_tolerance:function(){return cc.sT||settings_tolerance},hide_element_style:function(){return'{'+(cc.hES||hide_element_style)+'}'},hide_element:function(){return typeof cc.hE==='string'?cc.hE:hide_element},getVersion:function(){return version},finish:function(){if(!f){f=true;var e=d.getElementById('_vis_opt_path_hides');if(e)e.parentNode.removeChild(e)}},finished:function(){return f},load:function(e){var t=this.getSettings(),n=d.createElement('script'),i=this;if(t){n.textContent=t;d.getElementsByTagName('head')[0].appendChild(n);if(!w.VWO||VWO.caE){stT.removeItem(cK);i.load(e)}}else{n.fetchPriority='high';n.src=e;n.type='text/javascript';n.onerror=function(){_vwo_code.finish()};d.getElementsByTagName('head')[0].appendChild(n)}},getSettings:function(){try{var e=stT.getItem(cK);if(!e){return}e=JSON.parse(e);if(Date.now()>e.e){stT.removeItem(cK);return}return e.s}catch(e){return}},init:function(){if(d.URL.indexOf('__vwo_disable__')>-1)return;var e=this.settings_tolerance();w._vwo_settings_timer=setTimeout(function(){_vwo_code.finish();stT.removeItem(cK)},e);var t=d.currentScript,n=d.createElement('style'),i=this.hide_element(),r=t&&!t.async&&i?i+this.hide_element_style():'',c=d.getElementsByTagName('head')[0];n.setAttribute('id','_vis_opt_path_hides');v&&n.setAttribute('nonce',v.nonce);n.setAttribute('type','text/css');if(n.styleSheet)n.styleSheet.cssText=r;else n.appendChild(d.createTextNode(r));c.appendChild(n);this.load('https://dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&vn='+version)}};w._vwo_code=code;code.init();})();
+</script>
+<!-- End VWO Async SmartCode -->
+<script>
+/*
+  2026-04-22 : added utm fragment
+  2026-04-15 : deployed to PROD
+*/
+(function () {
+    function getPageLanguage() {
+        const lang = (document.documentElement.getAttribute('lang') || 'en')
+            .toLowerCase()
+            .split('-')[0];
+        return ['en', 'fr', 'es', 'ru'].includes(lang) ? lang : 'en';
+    }
+
+    const PAGE_LANG = getPageLanguage();
+    // ref and id are required for product mapping (eg AFNOR)
+    const endpoint =
+        `https://www.iso.org/bootiful-services/opt-out/ip/check?type=std&id=63787&ref=63787&lang=${PAGE_LANG}&guilang=${PAGE_LANG}`;
+
+    const LS_KEY = 'iso_buybox_country_dismissed_at';
+    const DISMISS_TTL_MS = 24 * 60 * 60 * 1000;
+    // const OPTOUT_COUNTRIES = ['GB', 'FR', 'ES', 'NO'];
+    const OPTOUT_COUNTRIES = ['GB'];
+
+    const HIDDEN_CLASS = 'js-buybox-hidden';
+    const INSERTED_CLASS = 'js-country-buybox-banner';
+
+    const TRANSLATIONS = {
+        en: {
+            body: 'You are visiting from {country}. Customers with a billing address in {country} must purchase this item from the {member} store.',
+            button: 'Buy from {member}',
+            remove: 'Remove this notice',
+            removeSuffix: " as my billing address isn't in {country}.",
+            fallbackItem: 'Webstore notice'
+        },
+        fr: {
+            body: 'Si votre requête provient de {country}, veuillez vous rendre sur la boutique {member} pour acheter cet article.',
+            button: 'Acheter chez {member}',
+            remove: 'Supprimer cet avertissement',
+            removeSuffix: " car ma requête ne provient pas de {country}.",
+            fallbackItem: 'Avertissement'
+        },
+        es: {
+            body: 'Parece que se está conectando desde {country}. Visite la tienda de {member} para comprar este artículo.',
+            button: 'Comprar en {member}',
+            remove: 'Eliminar este aviso',
+            removeSuffix: ' porque no me estoy conectando desde {country}.',
+            fallbackItem: 'Aviso de la tienda en línea'
+        },
+        ru: {
+            body: 'Похоже, что вы подключаетесь из {country}. Пожалуйста, посетите магазин {member}, чтобы приобрести эту публикацию.',
+            button: 'Купить в {member}',
+            remove: 'Убрать это уведомление',
+            removeSuffix: ', так как я не подключаюсь из {country}.',
+            fallbackItem: 'Уведомление интернет-магазина'
+        }
+    };
+
+    function t() {
+        return TRANSLATIONS[PAGE_LANG] || TRANSLATIONS.en;
+    }
+
+    function addUtmParams(url) {
+        try {
+            //const u = new URL(url, window.location.origin);
+            const u = new URL(url);
+            u.searchParams.set('utm_source', 'iso');
+            u.searchParams.set('utm_medium', 'referral');
+            u.searchParams.set('utm_campaign', 'iso_redirect');
+            return u.toString();
+        } catch (e) {
+            return url;
+        }
+    }
+
+    function formatTemplate(template, values) {
+        return template.replace(/\{(\w+)\}/g, function (_, key) {
+            return values[key] != null ? values[key] : '';
+        });
+    }
+
+    function dismissedRecently() {
+        try {
+            const raw = localStorage.getItem(LS_KEY);
+            if (!raw) return false;
+            const ts = Number(raw);
+            if (!Number.isFinite(ts)) return false;
+            return (Date.now() - ts) < DISMISS_TTL_MS;
+        } catch (e) {
+            return false;
+        }
+    }
+
+    function setDismissedNow() {
+        try {
+            localStorage.setItem(LS_KEY, String(Date.now()));
+        } catch (e) {}
+    }
+
+    function unhideAllBuyboxes() {
+        document.querySelectorAll('.card.buybox.' + HIDDEN_CLASS).forEach(function (el) {
+            el.classList.remove(HIDDEN_CLASS);
+            el.style.display = '';
+            el.removeAttribute('aria-hidden');
+        });
+    }
+
+    function removeAllInsertedBanners() {
+        document.querySelectorAll('.' + INSERTED_CLASS).forEach(function (el) {
+            el.remove();
+        });
+    }
+
+    function resetToDefault() {
+        removeAllInsertedBanners();
+        unhideAllBuyboxes();
+    }
+
+    function createBannerCard(itemNumber, country, member, externalLink, countryIso) {
+        const strings = t();
+
+        const card = document.createElement('div');
+        card.className = 'card ' + INSERTED_CLASS;
+
+        const header = document.createElement('div');
+        header.className = 'card-header text-center--OFF';
+
+        const h4 = document.createElement('h4');
+        h4.textContent = itemNumber;
+        header.appendChild(h4);
+
+        const body = document.createElement('div');
+        body.className = 'card-body';
+
+        const p = document.createElement('p');
+        p.textContent = formatTemplate(strings.body, {
+            country: country,
+            member: member
+        });
+
+        const a = document.createElement('a');
+        a.setAttribute('role', 'button');
+        a.href = addUtmParams(externalLink);
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.className = 'btn btn-info btn-md';
+        a.textContent = formatTemplate(strings.button, {
+            member: member
+        });
+
+        // add dynamic country code
+        if (countryIso) {
+            a.dataset.storeloc = countryIso.toUpperCase();
+        }
+
+        body.appendChild(p);
+        body.appendChild(a);
+
+        const footer = document.createElement('div');
+        footer.className = 'card-footer';
+
+        const p2 = document.createElement('p');
+        p2.className = 'text-xs';
+
+        const removeLink = document.createElement('a');
+        removeLink.className = 'removeBanner';
+        removeLink.href = '#';
+        removeLink.textContent = strings.remove;
+
+        p2.appendChild(removeLink);
+        p2.appendChild(document.createTextNode(formatTemplate(strings.removeSuffix, {
+            country: country
+        })));
+
+        footer.appendChild(p2);
+
+        card.appendChild(header);
+        card.appendChild(body);
+        card.appendChild(footer);
+
+        return card;
+    }
+
+    function applyCountryBehavior(data) {
+        if (dismissedRecently()) {
+            resetToDefault();
+            return;
+        }
+
+        const buyboxes = Array.from(document.querySelectorAll('.card.buybox'));
+        if (!buyboxes.length) return;
+
+        removeAllInsertedBanners();
+
+        const strings = t();
+
+        buyboxes.forEach(function (buybox) {
+            buybox.classList.add(HIDDEN_CLASS);
+            buybox.style.display = 'none';
+            buybox.setAttribute('aria-hidden', 'true');
+
+            const h4 = buybox.querySelector('.card-header > h4');
+            const itemNumber = ((h4 && h4.textContent) || '').trim() || strings.fallbackItem;
+
+            const banner = createBannerCard(
+                itemNumber,
+                data.country,
+                data.member,
+                data.redirectionUrl,
+                data.country_iso
+            );
+            buybox.insertAdjacentElement('afterend', banner);
+        });
+    }
+
+    function fetchAndApply() {
+        if (dismissedRecently()) {
+            resetToDefault();
+            return;
+        }
+
+        fetch(endpoint)
+            .then(function (res) {
+                if (!res.ok) throw new Error('Network response was not ok');
+                return res.json();
+            })
+            .then(function (data) {
+                const countryIso = ((data && data.country_iso) || '').toUpperCase();
+                const shouldShowBanner = (
+                    OPTOUT_COUNTRIES.includes(countryIso) &&
+                    data &&
+                    data.country &&
+                    data.member &&
+                    data.redirectionUrl
+                );
+
+                if (shouldShowBanner) {
+                    applyCountryBehavior(data);
+                    return;
+                }
+
+                resetToDefault();
+            })
+            .catch(function (err) {
+                console.error('IP check failed:', err);
+                resetToDefault();
+            });
+    }
+
+    document.addEventListener('click', function (e) {
+        const link = e.target.closest('.removeBanner');
+        if (!link) return;
+
+        e.preventDefault();
+        setDismissedNow();
+        resetToDefault();
+    });
+
+    function init() {
+        fetchAndApply();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
+</script>
+<style>
+        nav[role="navigation"]:has(.ticker--live) { background-color: var(--bs-brand)!important; }
+nav[role="navigation"]:has(.ticker--live)  > .container { gap: 1rem; }
+nav[role="navigation"]:has(.ticker--live) #utilities > li:not(#lang-switcher) { display: none!important; }
+.card-footer:has(.ticker--live) { background-color: var(--bs-dark)!important; color: white; }
+.card-footer:has(.ticker--live) a { color: white; }
+.ticker:has(.ticker--live) { white-space: normal; }
+.ticker--live .ticker__icon { animation: live 1s infinite; }
+@keyframes live { 0% { color: transparent; } 50% { color: white; } 100% { color: transparent; } }
+.its-standard [data-status] {display: none; }
+.row-sticky .col-lg-4>*, .row-sticky .col-md-4>*, .row-sticky .col-sm-4>*, .row-sticky .col-xs-4>* {
+    top: calc(1.9375rem + 5.25rem);
+}</style>
+    
+<script type="application/json" id="jahia-data-aggregatedjs">{"scripts":["/modules/iso-jahia-service-module/javascript/catalog.js"]}</script>
+
+<script type="text/javascript" src="/modules/CsrfServlet"></script>
+</head>
+
+  <!-- Topbar utility -->
+
+  <body class="theme-red lang-en its-standard is-prod is-live" id="page-4790ffbe-5ec1-41d6-97da-bbb6de2014de">
+    <a id="page-top" class="skip-navigation btn btn-info visually-hidden visually-hidden-focusable" href="#content">Skip to main content</a>
+    <nav role="navigation" aria-label="Utility Navigation" class="nav-utility navbar-expand-lg text-sm navbar-dark bg-darkergray text-light" elementtiming="utilityNav">
+      <div class="container d-flex justify-content-between">
+        <div class="ticker text-truncate float-start"></div>
+        <ul class="nav d-flex justify-content-end justify-content-sm-around justify-content-md-end" id="utilities">
+          <li class="nav-item d-none d-sm-block">
+            <a href="https://login.iso.org" class="nav-link d-flex align-items-center" title="ISO's applications portal"><i class="bi-grid-3x3-gap-fill"></i>&nbsp;Applications</a>
+          </li>
+          <li class="nav-item d-none d-sm-block">
+            <a href="https://www.iso.org/obp/ui/en/" class="nav-link d-flex align-items-center" title="Online Browsing Platform"><i class="bi-journal-text"></i>&nbsp;OBP</a>
+          </li>
+          <li class="nav-item dropdown" id="lang-switcher">
+  <a id="lang-dropdown" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" aria-expanded="false">English</a>
+  <ul class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="lang-dropdown">
+    <li class="lang-es "><a class="dropdown-item " href="/es/contents/data/standard/06/20/62085.html">español</a></li><li class="lang-fr "><a class="dropdown-item " href="/fr/standard/62085.html">français</a></li><li class="lang-ru "><a class="dropdown-item " href="/ru/standard/62085.html">русский</a></li></ul>
+</li></ul>
+      </div>
+    </nav>
+
+    <!-- Header ISO.ORG -->
+    <header class="header-bootstrap sticky-top">
+      <!-- Main navigation -->
+      <nav class="navbar nav-iso navbar-expand-lg navbar-light shadow-md bg-white text-dark" elementtiming="mainNav">
+        <div class="container">
+          <a class="logo logo-square isologo logo-sm" href="/home.html" title="International Organization for Standardization" alt="ISO logo"></a>
+          <div class="isologo-print"><img loading="lazy" fetchpriority="low" src="/modules/isoorg-template/img/iso/iso-logo-print.gif" alt="ISO logo for print" width="50" height="50" elementtiming="logoPrint"/></div>
+          <button class="btn btn-light navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="navbar-toggler-icon-animated"><span></span><span></span><span></span><span></span></div><span class="visually-hidden-xs">&nbsp;Menu</span>
+          </button>
+          <!-- TOP LEVEL1 NAVIGATION -->
+          <nav role="navigation" aria-label="Main Navigation" class="nav-megamenu collapse navbar-collapse flex-lg-grow-0 flex-xxl-grow-1" id="mainNav"><ul role='menubar' class='navbar-nav me-auto mb-lg-0 ps-2 pe-2 nav-level1' ><li role='menuitem' class='nav-item dropdown position-static noChildren firstInLevel' ><a class='nav-link dropdown-toggle megamenu-toggle  '   title="Covering almost every product, process or service imaginable, ISO makes standards used everywhere."  href='/standards.html'>Standards</a></li><!-- close of list item level 1 --><li role='menuitem' class='nav-item dropdown position-static hasChildren' ><a class='nav-link dropdown-toggle megamenu-toggle  ' data-bs-toggle="dropdown" aria-expanded="true"   href=''>Sectors</a><div role='menubar' class='dropdown-menu megamenu w-100 mt-0 border-0 rounded-0 megamenu-shadow-md nav-level2' aria-labelledby="navbarDropdown" data-bs-popper="none"><div class="container"><div class="row mb-xs-4 my-md-4 megamenu-animate slideUp"><div role='menuitem' class='col-xs-6 col-lg-3 mt-0 noChildren firstInLevel' ><a class='nav-link section-head ps-0  '   title="(including medicine and laboratory equipment)"  href='/sectors/health'>Health</a></div><!-- close of list item level 2 --><div role='menuitem' class='col-xs-6 col-lg-3 mt-0 noChildren' ><a class='nav-link section-head ps-0  '   title="(including communication technology, graphics and photography)"  href='/sectors/it-technologies'>IT & related technologies</a></div><!-- close of list item level 2 --><div role='menuitem' class='col-xs-6 col-lg-3 mt-0 noChildren' ><a class='nav-link section-head ps-0  '   title="(Business management, financial and professional services)"  href='/sectors/management-services'>Management & services</a></div><!-- close of list item level 2 --><div role='menuitem' class='col-xs-6 col-lg-3 mt-0 noChildren' ><a class='nav-link section-head ps-0  '    href='/sectors/security-safety-risk'>Security, safety & risk</a></div><!-- close of list item level 2 --><div role='menuitem' class='col-xs-6 col-lg-3 mt-0 noChildren' ><a class='nav-link section-head ps-0  '   title="(including vehicles, parts and infrastructure, freight, packaging and distribution)"  href='/sectors/transport'>Transport</a></div><!-- close of list item level 2 --><div role='menuitem' class='col-xs-6 col-lg-3 mt-0 noChildren' ><a class='nav-link section-head ps-0  '   title="(including power generation and transport, fuels)"  href='/sectors/energy'>Energy</a></div><!-- close of list item level 2 --><div role='menuitem' class='col-xs-6 col-lg-3 mt-0 noChildren' ><a class='nav-link section-head ps-0  '    href='/sectors/diversity-inclusion'>Diversity & inclusion</a></div><!-- close of list item level 2 --><div role='menuitem' class='col-xs-6 col-lg-3 mt-0 noChildren' ><a class='nav-link section-head ps-0  '   title="Explore our Environmental sustainability sector."  href='/sectors/environment'>Environmental sustainability</a></div><!-- close of list item level 2 --><div role='menuitem' class='col-xs-6 col-lg-3 mt-0 noChildren' ><a class='nav-link section-head ps-0  '    href='/sectors/food-agriculture'>Food & agriculture</a></div><!-- close of list item level 2 --><div role='menuitem' class='col-xs-6 col-lg-3 mt-0 noChildren' ><a class='nav-link section-head ps-0  '   title="(Ores and metals, non-metallic materials, chemicals)"  href='/sectors/materials'>Materials</a></div><!-- close of list item level 2 --><div role='menuitem' class='col-xs-6 col-lg-3 mt-0 noChildren' ><a class='nav-link section-head ps-0  '    href='/sectors/building-construction'>Building & construction</a></div><!-- close of list item level 2 --><div role='menuitem' class='col-xs-6 col-lg-3 mt-0 noChildren' ><a class='nav-link section-head ps-0  '   title="(Mechanical engineering and special technologies such as robotics, optics, biotechnology, etc)"  href='/sectors/engineering'>Engineering</a></div><!-- close of list item level 2 --></div></div></div><!-- close of container level 2 --></li><!-- close of list item level 1 --><li role='menuitem' class='nav-item dropdown position-static noChildren' ><a class='nav-link dropdown-toggle megamenu-toggle  '   title="ISO brings together global experts to develop International Standards that help solve problems and drive innovation."  href='/about'>About ISO</a></li><!-- close of list item level 1 --><li role='menuitem' class='nav-item dropdown position-static hasChildren' ><a class='nav-link dropdown-toggle megamenu-toggle  ' data-bs-toggle="dropdown" aria-expanded="true"   href=''>Insights & news</a><div role='menubar' class='dropdown-menu megamenu w-100 mt-0 border-0 rounded-0 megamenu-shadow-md nav-level2' aria-labelledby="navbarDropdown" data-bs-popper="none"><div class="container"><div class="row mb-xs-4 my-md-4 megamenu-animate slideUp"><div role='menuitem' class='col-xs-6 col-lg-3 mt-0 hasChildren firstInLevel' ><a class='nav-link section-head ps-0   disabled'    href=''>Insights</a><div role='menubar' class='list-group list-group-flush mt-0 nav-level3' ><div role='menuitem' class='nav-item position-static ms-0 noChildren firstInLevel' ><a class='nav-link ps-0  '    href='/insights'>All insights</a></div><!-- close of list item level 3 (and more) --><div role='menuitem' class='nav-item position-static ms-0 noChildren' ><a class='nav-link ps-0  '    href='/insights/filtered-list-healthcare'>Healthcare</a></div><!-- close of list item level 3 (and more) --><div role='menuitem' class='nav-item position-static ms-0 noChildren' ><a class='nav-link ps-0  '    href='/insights/filtered-list-artificial-intelligence'>Artificial intelligence</a></div><!-- close of list item level 3 (and more) --><div role='menuitem' class='nav-item position-static ms-0 noChildren' ><a class='nav-link ps-0  '    href='/insights/filtered-list-climate-change'>Climate change</a></div><!-- close of list item level 3 (and more) --><div role='menuitem' class='nav-item position-static ms-0 noChildren lastInLevel' ><a class='nav-link ps-0  '    href='/home/insights-news/insights/transport.html'>Transport</a></div><!-- close of list item level 3 (and more) --></div><!-- close of container level 3 (and more) --></div><!-- close of list item level 2 --><div role='menuitem' class='col-xs-6 col-lg-3 mt-0 hasChildren' ><a class='nav-link section-head ps-0   disabled'    href=''> </a><div role='menubar' class='list-group list-group-flush mt-0 nav-level3' ><div role='menuitem' class='nav-item position-static ms-0 noChildren firstInLevel' ><a class='nav-link ps-0  '    href='/insights/filtered-list-information-security'>Cybersecurity</a></div><!-- close of list item level 3 (and more) --><div role='menuitem' class='nav-item position-static ms-0 noChildren' ><a class='nav-link ps-0  '    href='/insights/filtered-list-quality-management'>Quality management</a></div><!-- close of list item level 3 (and more) --><div role='menuitem' class='nav-item position-static ms-0 noChildren' ><a class='nav-link ps-0  '    href='/insights/filtered-list-renewable-energy'>Renewable energy</a></div><!-- close of list item level 3 (and more) --><div role='menuitem' class='nav-item position-static ms-0 noChildren' ><a class='nav-link ps-0  '    href='/insights/filtered-list-occupational-health-and-safety'>Occupational health and safety</a></div><!-- close of list item level 3 (and more) --><div role='menuitem' class='nav-item position-static ms-0 noChildren lastInLevel' ><a class='nav-link ps-0  '    href='/home/insights-news/navigation-menu-hidden/quantum-computing.html'>Quantum computing</a></div><!-- close of list item level 3 (and more) --></div><!-- close of container level 3 (and more) --></div><!-- close of list item level 2 --><div role='menuitem' class='col-xs-6 col-lg-3 mt-0 hasChildren' ><a class='nav-link section-head ps-0   disabled'    href=''>News</a><div role='menubar' class='list-group list-group-flush mt-0 nav-level3' ><div role='menuitem' class='nav-item position-static ms-0 noChildren firstInLevel' ><a class='nav-link ps-0  '    href='/insights/thought-leadership'>Expert talk</a></div><!-- close of list item level 3 (and more) --><div role='menuitem' class='nav-item position-static ms-0 noChildren' ><a class='nav-link ps-0  '    href='/insights/standards-world'>Standards world</a></div><!-- close of list item level 3 (and more) --><div role='menuitem' class='nav-item position-static ms-0 noChildren' ><a class='nav-link ps-0  '    href='/home/insights-news/news/dossier-medias.html'>Media kit</a></div><!-- close of list item level 3 (and more) --></div><!-- close of container level 3 (and more) --></div><!-- close of list item level 2 --><div role='menuitem' class='col-xs-6 col-lg-3 mt-0 hasChildren lastInLevel' ><a class='nav-link section-head ps-0   disabled'    href=''>Resources</a><div role='menubar' class='list-group list-group-flush mt-0 nav-level3' ><div role='menuitem' class='nav-item position-static ms-0 noChildren firstInLevel' ><a class='nav-link ps-0  '   title="ISO 22000 is the International Standard for food safety management systems. It helps organizations identify hazards, manage risks and demonstrate their ability to provide safe food consistently."  href='/home/insights-news/resources/iso-22000-explained.html'>ISO 22000 explained</a></div><!-- close of list item level 3 (and more) --><div role='menuitem' class='nav-item position-static ms-0 noChildren' ><a class='nav-link ps-0  '   title="ISO 9001:2015 is the International Standard for quality management systems. It provides a framework that helps organizations deliver consistent products and services, improve efficiency and meet customer and regulatory expectations."  href='/home/insights-news/resources/iso-9001-explained.html'>ISO 9001 explained</a></div><!-- close of list item level 3 (and more) --><div role='menuitem' class='nav-item position-static ms-0 noChildren' ><a class='nav-link ps-0  '   title="ISO 14001:2015 is the International Standard for environmental management systems. It helps organizations manage their environmental impacts, comply with applicable legal requirements, prevent pollution and improve environmental performance over time."  href='/home/insights-news/resources/iso-14001-explained.html'>ISO 14001 explained</a></div><!-- close of list item level 3 (and more) --><div role='menuitem' class='nav-item position-static ms-0 noChildren' ><a class='nav-link ps-0  '   title="ISO/IEC 42001 is the International Standard for AI management systems. It provides requirements and guidance for organizations that develop, provide or use AI systems. "  href='/home/insights-news/resources/iso-42001-explained-what-it-is.html'>ISO 42001 explained</a></div><!-- close of list item level 3 (and more) --><div role='menuitem' class='nav-item position-static ms-0 noChildren lastInLevel' ><a class='nav-link ps-0  '   title="ISO 45001:2018 is the International Standard for occupational health and safety management systems. It helps organizations provide safe and healthy workplaces by preventing work-related injury and ill health, managing risks, and continually improving OHS performance."  href='/home/insights-news/resources/iso-45001-explained-what-it-is.html'>ISO 45001 explained</a></div><!-- close of list item level 3 (and more) --></div><!-- close of container level 3 (and more) --></div><!-- close of list item level 2 --></div></div></div><!-- close of container level 2 --></li><!-- close of list item level 1 --><li role='menuitem' class='nav-item dropdown position-static noChildren' ><a class='nav-link dropdown-toggle megamenu-toggle  '   title="Find out how the ISO process bring together global experts to create standards that are chosen the world over."  href='/developing-standards.html'>Taking part</a></li><!-- close of list item level 1 --><li role='menuitem' class='nav-item dropdown position-static noChildren inPath  lastInLevel' ><a class='nav-link dropdown-toggle megamenu-toggle  '   title="Are you looking to buy International Standards, guidelines, collections and checklists? They're all right here, in the ISO Store."  href='/store.html'>Store</a></li><!-- close of list item level 1 --></ul><!-- close of container level 1 --></nav><form class="navbar-form d-flex isosearch ms-sm-2" role="search" id="siteSearch" elementtiming="search">
+            <span class="hidden" data-searchpageurl="/search.html"></span>
+            <div class="input-group">
+              <input type="search" class="form-control" placeholder="Search" aria-labelledby="input-search">
+              <button id="input-search" class="btn btn-primary" type="submit"><i class="bi-search text-muted"></i><span class="visually-hidden">Search</span></button>
+            </div>
+          </form>
+<a role="button" id="shoppingCart" class="btn btn-light shopping-cart-link bg-white border-0 text-muted d-none d-lg-block" href="/webstore/checkout?memberId=ISO&guilang=en" title="Shopping cart" aria-label="Shopping cart" style-="display:none;">
+            <i class="bi-cart"></i><span id="cartText" class="visually-hidden-xs ms-1" style="display: none;"> Cart</span>
+          </a>
+        </div>
+      </nav>
+      </header>
+
+    <!-- MAIN CONTENT -->
+    <main role="main" id="content" class="acer" aria-label="Content" tabindex="-1">
+      
+
+
+<div itemscope itemtype="https://schema.org/Product" class="its-standard-container" id="its-standard-62085">
+  <section class="section-navigation bg-lightgray" id="section-navigation">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+          <div class="row">
+            <div class="col-8 col-xs-3 order-2 order-xs-1 d-none d-xs-block">
+
+              <figure class="standard">
+                <div class="standard-cover shadow-sm  standard-cover-old" id="standard-poster" elementtiming="standardImg">
+      <div class="cell-top-left ">
+        <div class="standard-logo grayscale">
+            <img src="/modules/iso-jahia-service-module/img/iso-logo.png"/></div>
+        <div class="d-flex flex-column justify-content-between text-end">
+            <div class="standard-reference">
+              Reference number<br/>
+                ISO 9001:2015</div>
+            <div class="standard-copyright">&copy; ISO 2026</div>
+          </div>
+        </div>
+      <div class="cell-top-right ">
+        <div class="standard-type">
+          International Standard</div>
+        <div class="standard-number ">ISO 9001:2015</div>
+        </div>
+      <div class="cell-bottom-left ">
+        <div class="standard-title">Quality management systems — Requirements</div>
+        </div>
+      <div class="cell-bottom-right ">
+        <div class="standard-edition">
+              Edition&nbsp;5<br/>2015-09</div>
+          </div>
+      <div class="standard-label  d-none">
+          </div>
+    </div>
+  <img src="/modules/iso-jahia-service-module/img/iso-standard-cover-thumbnail.png" class="d-none" itemprop="image" id="standard-image"/>
+  <figcaption class="text-center">
+    <a class="btn btn-sm btn-light" href="https://www.iso.org/obp/ui/en/#!iso:std:62085:en">Read sample</a>
+  </figcaption>
+</figure>
+            </div>
+            <div class="col-12 col-xs-9 order-1 order-xs-2">
+              <div class="visually-hidden" itemprop="category"></div>
+              <div class="visually-hidden" itemprop="name">ISO 9001:2015</div>
+              <div class="visually-hidden" itemprop="productID">62085</div>
+              <div class="visually-hidden" itemprop="brand" itemscope itemtype="https://schema.org/Brand">
+                <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+                  <meta itemprop="url" content="/modules/isoorg-template/img/iso/iso-logo-print.gif"/>
+                  <meta itemprop="width" content="350">
+                  <meta itemprop="height" content="350">
+                </div>
+                <meta itemprop="name" content="ISO - International Organization for Standardization">
+              </div>
+
+              <nav role="navigation" aria-label="Children Navigation" class="heading-condensed nav-relatives">
+  <div class="section-head "></div>
+
+  <h1 class="stdTitle" elementtiming="standardH1">
+    <span class="d-flex align-items-start gap-2">
+      <span class="d-block mb-2" elementtiming="standardDocRef">ISO 9001:2015</span>
+      </span>
+    <span class="display-5 fw-normal d-block mb-2" elementtiming="standardTitle1">Quality management systems — Requirements</span></h1>
+</nav>
+<div class="mt-3 callout callout-success callout-top">
+                  <div class="mb-1" elementtiming="standardStatus"><a href="#lifecycle" class="text-success" title="Life cycle"><strong>Published</strong></a>
+                    (Edition 5, 2015)</div>
+
+                  <div class="mb-3" data-info="stage-description" elementtiming="standardStage">This publication was last reviewed and confirmed in&nbsp;2021.
+                          Therefore this version remains current.</div>
+                  <div class="amd" role="alert" data-alert="amendment" elementtiming="standardAmd">
+                      <i class="bi bi-arrow-return-right text-success"></i>
+                      This standard has&nbsp;<a href="#amendment" class="page-scroll">1&nbsp;amendment</a>.
+                    </div>
+                  <div class="mb-3" role="alert" data-alert="revisedBy" elementtiming="standardRevision">
+                      <i class="bi bi-arrow-right text-info"></i>
+                        Expected to be replaced by <a href="/standard/88464.html">ISO/FDIS 9001</a> within the coming months.</div>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-md-offset-1">
+
+          <div class="card store-box buy-box buybox" id="cs62085" elementtiming="standardStorebox">
+              <div class="card-header text-center"><h3>ISO 9001:2015</h3></div>
+              
+<div class="card-body">
+
+  <span class="visually-hidden" id="indexReference_cs62085" data-index="62085 - ISO 9001:2015 - Quality management systems — Requirements"></span>
+    <span class="visually-hidden" id="itemReference_cs62085">ISO 9001:2015</span>
+    <div class="visually-hidden" id="csNumber_cs62085">62085</div>
+  <form class="box-option" id="form_cs62085" elementtiming="productOptions">
+    <div class="mb-3">
+      <div class="section-head mb-1 text-sm">
+        Language</div>
+      <div class="form-group">
+        <select class="form-select form-select-sm bkilang" id="bkilang_cs62085">
+
+            <option value="en"  selected>English</option>
+
+            <option value="fr" >French</option>
+
+            <option value="ru" >Russian</option>
+
+            <option value="es" >Spanish</option>
+
+            <option value="ar" >Arabic</option>
+
+            </select>
+      </div>
+    </div>
+    <div class="section-head mb-1 text-sm">
+      Format</div>
+      <div class="formats formats_cs62085" id="bkifmt_cs62085_en" style="display: none;"><div class="form-check text-sm" id="bkifmt_cs62085_en_1">
+                  <input class="form-check-input" data-format="pdf_epub" data-type="std" data-price="179"  checked="checked" type="radio" name="format_en" id="format_cs62085_en_1" value="01ub000000288SMAAY~a05Vj000005yc5zIAA~a0fb0000000eNIJAA2~a0cb0000003lrAyAAI"/>
+                  <label class="form-check-label" for="format_cs62085_en_1">PDF + ePub</label>
+                </div><div class="form-check text-sm" id="bkifmt_cs62085_en_2">
+                  <input class="form-check-input" data-format="pdf_epub_redline" data-type="std" data-price="215"  type="radio" name="format_en" id="format_cs62085_en_2" value="01ub000000288SMAAY~a05Vj000005yc5xIAA~a0fb0000003SDheAAG~a0cb0000003lrCGAAY"/>
+                  <label class="form-check-label" for="format_cs62085_en_2">PDF + ePub + Redline</label>
+                </div><div class="form-check text-sm" id="bkifmt_cs62085_en_3">
+                  <input class="form-check-input" data-format="paper" data-type="std" data-price="179"  type="radio" name="format_en" id="format_cs62085_en_3" value="01ub000000288SMAAY~a05Vj000005yc63IAA~a0fb0000000eNJ7AAM~a0cb0000003lrBcAAI"/>
+                  <label class="form-check-label" for="format_cs62085_en_3">Paper</label>
+                </div></div><div class="formats formats_cs62085" id="bkifmt_cs62085_fr" style="display: none;"><div class="form-check text-sm" id="bkifmt_cs62085_fr_1">
+                  <input class="form-check-input" data-format="pdf_epub" data-type="std" data-price="179"  checked="checked" type="radio" name="format_fr" id="format_cs62085_fr_1" value="01ub000000288SMAAY~a05Vj000005yc5zIAA~a0fb0000000eNFnAAM~a0cb0000003lr8PAAQ"/>
+                  <label class="form-check-label" for="format_cs62085_fr_1">PDF + ePub</label>
+                </div><div class="form-check text-sm" id="bkifmt_cs62085_fr_2">
+                  <input class="form-check-input" data-format="pdf_epub_redline" data-type="std" data-price="215"  type="radio" name="format_fr" id="format_cs62085_fr_2" value="01ub000000288SMAAY~a05Vj000005yc5xIAA~a0fb0000003SEkwAAG~a0cb0000003lsbFAAQ"/>
+                  <label class="form-check-label" for="format_cs62085_fr_2">PDF + ePub + Redline</label>
+                </div><div class="form-check text-sm" id="bkifmt_cs62085_fr_3">
+                  <input class="form-check-input" data-format="paper" data-type="std" data-price="179"  type="radio" name="format_fr" id="format_cs62085_fr_3" value="01ub000000288SMAAY~a05Vj000005yc63IAA~a0fb0000000eNFmAAM~a0cb0000003lrCuAAI"/>
+                  <label class="form-check-label" for="format_cs62085_fr_3">Paper</label>
+                </div></div><div class="formats formats_cs62085" id="bkifmt_cs62085_ru" style="display: none;"><div class="form-check text-sm" id="bkifmt_cs62085_ru_1">
+                  <input class="form-check-input" data-format="pdf" data-type="std" data-price="179"  checked="checked" type="radio" name="format_ru" id="format_cs62085_ru_1" value="01ub000000288SMAAY~a05Vj000005yc5zIAA~a0fb0000000eNIzAAM~a0cb0000004mH8YAAU"/>
+                  <label class="form-check-label" for="format_cs62085_ru_1">PDF</label>
+                </div><div class="form-check text-sm" id="bkifmt_cs62085_ru_2">
+                  <input class="form-check-input" data-format="paper" data-type="std" data-price="179"  type="radio" name="format_ru" id="format_cs62085_ru_2" value="01ub000000288SMAAY~a05Vj000005yc63IAA~a0fb0000000eNJDAA2~a0cb0000004mGsVAAU"/>
+                  <label class="form-check-label" for="format_cs62085_ru_2">Paper</label>
+                </div></div><div class="formats formats_cs62085" id="bkifmt_cs62085_es" style="display: none;"><div class="form-check text-sm" id="bkifmt_cs62085_es_1">
+                  <input class="form-check-input" data-format="pdf_epub" data-type="std" data-price="179"  checked="checked" type="radio" name="format_es" id="format_cs62085_es_1" value="01ub000000288SMAAY~a05Vj000005yc5zIAA~a0fb0000003SDiIAAW~a0cb0000003lrElAAI"/>
+                  <label class="form-check-label" for="format_cs62085_es_1">PDF + ePub</label>
+                </div><div class="form-check text-sm" id="bkifmt_cs62085_es_2">
+                  <input class="form-check-input" data-format="pdf_epub_redline" data-type="std" data-price="215"  type="radio" name="format_es" id="format_cs62085_es_2" value="01ub000000288SMAAY~a05Vj000005yc5xIAA~a0fb0000003SElaAAG~a0cb0000003lscIAAQ"/>
+                  <label class="form-check-label" for="format_cs62085_es_2">PDF + ePub + Redline</label>
+                </div><div class="form-check text-sm" id="bkifmt_cs62085_es_3">
+                  <input class="form-check-input" data-format="paper" data-type="std" data-price="179"  type="radio" name="format_es" id="format_cs62085_es_3" value="01ub000000288SMAAY~a05Vj000005yc63IAA~a0fb0000000eNJEAA2~a0cb0000003lrE7AAI"/>
+                  <label class="form-check-label" for="format_cs62085_es_3">Paper</label>
+                </div></div><div class="formats formats_cs62085" id="bkifmt_cs62085_ar" style="display: none;"><div class="form-check text-sm" id="bkifmt_cs62085_ar_1">
+                  <input class="form-check-input" data-format="pdf" data-type="std" data-price="179"  checked="checked" type="radio" name="format_ar" id="format_cs62085_ar_1" value="01ub000000288SMAAY~a05Vj000005yc5zIAA~a0fb0000000eNJ0AAM~a0cb000000BZpQgAAL"/>
+                  <label class="form-check-label" for="format_cs62085_ar_1">PDF</label>
+                </div><div class="form-check text-sm" id="bkifmt_cs62085_ar_2">
+                  <input class="form-check-input" data-format="paper" data-type="std" data-price="179"  type="radio" name="format_ar" id="format_cs62085_ar_2" value="01ub000000288SMAAY~a05Vj000005yc63IAA~a0fb0000000eNJAAA2~a0cb000000BZpRTAA1"/>
+                  <label class="form-check-label" for="format_cs62085_ar_2">Paper</label>
+                </div></div></form>
+
+  <div class="align-items-baseline box-price pb-0" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+    <div class="d-flex justify-content-center align-items-baseline gap-2">
+      <link itemprop="url" href="https://www.iso.org:-1/standard/62085.html" />
+      <meta itemprop="availability" content="https://schema.org/InStock" />
+      <span class="currency"><abbr title="Swiss francs" itemprop="priceCurrency">CHF</abbr></span>
+      <span class="price d-flex align-items-baseline gap-2">
+      <span class="amount" id="productPrice_cs62085" itemprop="price">179</span>
+    </span>
+    </div>
+  </div>
+
+  <div class="d-grid orderBasket box-action pt-0">
+    <button id="add_cs62085" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#iso-optout" onclick="javascript:addToBasket('cs62085', '1', 'en', 'cs')">
+      Add to cart</button>
+  </div>
+</div>
+<div class="card-footer text-xs text-center">
+  <div class="shippingCost d-none text-warning">* Shipping costs not included</div>
+  <div id="priceConverter">Convert Swiss francs (CHF) to <a id="convertLink_cs62085" target="_blank" href="https://www.xe.com/en/currencyconverter/convert/?Amount=179&From=CHF&To=EUR">your currency</a></div>
+  </div>
+
+
+</div>
+          </div>
+      </div>
+    </div>
+  </section>
+  <svg class="wave" preserveAspectRatio="none" viewBox="0 0 1440 96" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m0 96 80-5.3C160 85 320 75 480 64s320-21 480-21.3c160 .3 320 10.3 400 16l80 5.3V0H0v96Z"></path></svg>
+
+<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="exampleModal" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h1 class="modal-title fs-5" id="exampleModalLabel">Embarking on your ISO 9001 journey?</h1>
+<button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button></div>
+<div class="modal-body">
+
+<p>We’re excited to introduce the ISO 9001 Reader Wizard, designed to streamline your ISO 9001 integration effortlessly into your organization. So, what can you expect from the wizard?</p>
+<ul class="refine">
+<li>
+<strong>No more juggling multiple standards:</strong> Instantly access ISO 9001 content and ISO 9000 (definitions), all in one place.</li>
+<li><strong>Focus your work:</strong> Highlight different parts of the standard to better understand and identify key segments.</li>
+
+</ul>
+<h5>Ready to try it out?</h5>
+<p>We’re in the testing phase and looking for limited number of enthusiastic implementers to join us on this exciting journey.</p>
+
+</div>
+</div>
+</div>
+</div><section id="product-details" elementtiming="standardDetail">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+          <h2>What is ISO 9001?</h2>
+
+<p>ISO 9001 is a <b>globally recognized standard for quality management</b>. It helps organizations of all sizes and sectors to improve their performance, meet customer expectations and demonstrate their commitment to quality. Its requirements define how to establish, implement, maintain, and continually improve a quality management system (QMS).</p>
+
+<p>Implementing ISO 9001 means your organization has put in place effective processes and trained staff to deliver flawless products or services time after time.</p>
+
+<h2>Why is ISO 9001 important?</h2>
+
+<p>With more than one million certificates issued to organizations in 189 countries, ISO 9001 is the most widely used quality management standard in the world.&nbsp;Within the ISO 9000 family, which defines seven quality management principles including a strong customer focus and continual improvement, ISO 9001 is the only standard that can be certified to (though certification is not mandatory).</p>
+
+<p>Business benefits include:</p>
+
+<ul>
+ <li><b>Customer confidence</b>: The standard ensures that organizations have robust quality control processes in place, leading to increased customer trust and satisfaction.</li>
+ <li><b>Effective complaint resolution</b>: ISO 9001 offers guidelines for resolving customer complaints efficiently, contributing to timely and satisfactory problem-solving.</li>
+ <li><b>Process improvement</b>: The standard helps identify and eliminate inefficiencies, reduce waste, streamline operations, and promote informed decision-making, resulting in cost savings and better outcomes.</li>
+ <li><b>Ongoing optimization</b>: Regular audits and reviews encouraged by ISO 9001 enable organizations to continually refine their quality management systems, stay competitive, and achieve long-term success.</li>
+</ul><div class="emphasis emphasis-gray clearfix">
+  <div class="" id="subscribe">
+     <h4>Sign up for email updates</h4>
+
+<p>Register to receive resources and updates on ISO 9001 and related topics.</p><form method="POST" id="_form_13_" class="_form _form_13 _inline-form  _dark" novalidate>
+  <input type="hidden" name="u" value="13" />
+  <input type="hidden" name="f" value="13" />
+  <input type="hidden" name="s" />
+  <input type="hidden" name="c" value="0" />
+  <input type="hidden" name="m" value="0" />
+  <input type="hidden" name="act" value="sub" />
+  <input type="hidden" name="v" value="2" />
+  <input type="hidden" name="or" value="9417b9cd52ff6c742e176a370ed5442a" />
+
+  <style>
+      ._error {
+          width: 100%;
+          padding: 0.5em 1.25em;
+          text-align: left;
+      }
+      .grecaptcha-badge {
+          visibility: hidden;
+      }
+  </style>
+  <div class="_form-content">
+    <div class="input-group input-group-round mb-3">
+      <input type="text" id="email" class="form-control" name="email" placeholder="Email" aria-label="Email" aria-describedby="_form_13_submit" required/>
+      <input type="hidden" id="recaptchaResponse" name="recaptcha_response">
+      <div style="position:absolute; left:-5000px;">
+        <label for="website">Website</label>
+        <input type="text" name="website" id="website" tabindex="-1" autocomplete="off">
+      </div>
+      <button id="_form_13_submit" class="_submit btn btn-primary" type="submit" class="g-recaptcha" data-sitekey="6Lfvyx8qAAAAAHOXkwbvVobjfLbVzBEnEVRuLtNA" data-callback='onSubmit' data-action='submit'>
+        Subscribe</button>
+    </div>
+  </div>
+
+    <div class="_form-thank-you mb-3" style="display:none;">
+          <p><strong>Almost done!&nbsp;</strong><br />
+You are only one step away from joining the ISO subscriber list. Please confirm your subscription by clicking on the email we&#39;ve just sent to you. You will not be registered until you confirm your subscription. If you can&#39;t find the email, kindly check your spam folder and/or the promotions tab (if you use Gmail).</p></div>
+      </form>
+
+
+<script type="text/javascript">
+  if (document.getElementsByClassName("is-prod is-live")[0]) { console.debug = function () {} }; // redefine console.debug on PROD+LIVE
+
+  
+  window._check_reCaptcha_13 = function() {
+    grecaptcha.ready(function() {
+      grecaptcha.execute('6Lfvyx8qAAAAAHOXkwbvVobjfLbVzBEnEVRuLtNA', {action: 'submit'}).then(function (token) {
+        document.getElementById('recaptchaResponse').value = token;
+        // console.debug('token = ' + token);
+
+        let urlRestApi = "https://recaptchaenterprise.googleapis.com/v1/projects/iso-website-1722850679238/assessments?key=AIzaSyBzn_mnNayynzq0NemiOop0b9eLKaoiViE";
+        let jsonRequest = {
+          event: {
+            token: token,
+            expectedAction: "submit",
+            siteKey: "6Lfvyx8qAAAAAHOXkwbvVobjfLbVzBEnEVRuLtNA"
+          }
+        }
+        // Verify the token and get the score
+        fetch(urlRestApi, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(jsonRequest)
+        }).then(response => response.json()).then(data => {
+          console.debug("data = " + JSON.stringify(data));
+          const website = document.getElementById('website');
+          if ( (data.tokenProperties.valid && data.riskAnalysis.score >= 0.5) && (website.value.trim() === ''))  {
+            // If the score is good, submit the form
+            // console.debug("reCaptcha validation: " + data.tokenProperties.valid);
+            console.debug("reCaptcha score: " + data.riskAnalysis.score);
+            var _form_serialize_13 = function(form){if(!form||form.nodeName!=="FORM"){return }var i,j,q=[];for(i=0;i<form.elements.length;i++){if(form.elements[i].name===""){continue}switch(form.elements[i].nodeName){case"INPUT":switch(form.elements[i].type){case"tel":q.push(form.elements[i].name+"="+encodeURIComponent(form.elements[i].previousSibling.querySelector('div.iti__selected-dial-code').innerText)+encodeURIComponent(" ")+encodeURIComponent(form.elements[i].value));break;case"text":case"number":case"date":case"time":case"hidden":case"password":case"button":case"reset":case"submit":q.push(form.elements[i].name+"="+encodeURIComponent(form.elements[i].value));break;case"checkbox":case"radio":if(form.elements[i].checked){q.push(form.elements[i].name+"="+encodeURIComponent(form.elements[i].value))}break;case"file":break}break;case"TEXTAREA":q.push(form.elements[i].name+"="+encodeURIComponent(form.elements[i].value));break;case"SELECT":switch(form.elements[i].type){case"select-one":q.push(form.elements[i].name+"="+encodeURIComponent(form.elements[i].value));break;case"select-multiple":for(j=0;j<form.elements[i].options.length;j++){if(form.elements[i].options[j].selected){q.push(form.elements[i].name+"="+encodeURIComponent(form.elements[i].options[j].value))}}break}break;case"BUTTON":switch(form.elements[i].type){case"reset":case"submit":case"button":q.push(form.elements[i].name+"="+encodeURIComponent(form.elements[i].value));break}break}}return q.join("&")};
+            let serialized_13 = _form_serialize_13(document.getElementById('_form_13_')).replace(/%0A/g, '\\n');
+            _load_script('https://iso272.activehosted.com/proc.php?' + serialized_13 + '&jsonp=true');
+            console.debug("serialized_ID = " + 13);
+          } else {
+            // Handle the case where the score is too low
+            console.debug('reCAPTCHA verification failed. Please try again.');
+            console.debug('reCaptcha invalid reason: ' + data.tokenProperties.invalidReason);
+          }
+        }).catch(error => {
+          console.debug('An error occurred. Please try again.');
+          console.error('Error: ', error);
+        });
+      });
+    });
+  }
+
+
+  window._show_thank_you = function(id, message, trackcmp_url, email) {
+    var form = document.getElementById('_form_' + id + '_'), thank_you = form.querySelector('._form-thank-you');
+    form.querySelector('._form-content').style.display = 'none';
+    // thank_you.innerHTML = message;
+    thank_you.style.display = 'block';
+    const vgoAlias = typeof visitorGlobalObjectAlias === 'undefined' ? 'vgo' : visitorGlobalObjectAlias;
+    var visitorObject = window[vgoAlias];
+    if (email && typeof visitorObject !== 'undefined') {
+      visitorObject('setEmail', email);
+      visitorObject('update');
+    } else if (typeof(trackcmp_url) != 'undefined' && trackcmp_url) {
+      // Site tracking URL to use after inline form submission.
+      _load_script(trackcmp_url);
+    }
+    if (typeof window._form_callback !== 'undefined') window._form_callback(id);
+  };
+  window._show_error = function(id, message, html) {
+    var form = document.getElementById('_form_' + id + '_'), err = document.createElement('div'), button = form.querySelector('button'), old_error = form.querySelector('._form_error');
+    if (old_error) old_error.parentNode.removeChild(old_error);
+    err.innerHTML = message;
+    err.className = '_error-inner _form_error _no_arrow';
+    var wrapper = document.createElement('div');
+    wrapper.className = '_form-inner';
+    wrapper.appendChild(err);
+    button.parentNode.insertBefore(wrapper, button);
+    document.querySelector('[id^="_form"][id$="_submit"]').disabled = false;
+    if (html) {
+      var div = document.createElement('div');
+      div.className = '_error-html';
+      div.innerHTML = html;
+      err.appendChild(div);
+    }
+  };
+  window._load_script = function(url, callback) {
+    var head = document.querySelector('head'), script = document.createElement('script'), r = false;
+    script.type = 'text/javascript';
+    script.charset = 'utf-8';
+    script.src = url;
+    if (callback) {
+      script.onload = script.onreadystatechange = function() {
+        if (!r && (!this.readyState || this.readyState == 'complete')) {
+          r = true;
+          callback();
+        }
+      };
+    }
+    head.appendChild(script);
+  };
+  (function() {
+    if (window.location.search.search("excludeform") !== -1) return false;
+    var getCookie = function(name) {
+      var match = document.cookie.match(new RegExp('(^|; )' + name + '=([^;]+)'));
+      return match ? match[2] : null;
+    }
+    var setCookie = function(name, value) {
+      var now = new Date();
+      var time = now.getTime();
+      var expireTime = time + 1000 * 60 * 60 * 24 * 365;
+      now.setTime(expireTime);
+      document.cookie = name + '=' + value + '; expires=' + now + ';path=/; Secure; SameSite=Lax;';// cannot be HttpOnly
+    }
+    var addEvent = function(element, event, func) {
+      if (element.addEventListener) {
+        element.addEventListener(event, func);
+      } else {
+        var oldFunc = element['on' + event];
+        element['on' + event] = function() {
+          oldFunc.apply(this, arguments);
+          func.apply(this, arguments);
+        };
+      }
+    }
+    var _removed = false;
+    var form_to_submit = document.getElementById('_form_13_');
+    var allInputs = form_to_submit.querySelectorAll('input, select, textarea'), tooltips = [], submitted = false;
+
+    var getUrlParam = function(name) {
+      var params = new URLSearchParams(window.location.search);
+      return params.get(name) || false;
+    };
+
+    for (var i = 0; i < allInputs.length; i++) {
+      var regexStr = "field\\[(\\d+)\\]";
+      var results = new RegExp(regexStr).exec(allInputs[i].name);
+      if (results != undefined) {
+        allInputs[i].dataset.name = window.cfields[results[1]];
+      } else {
+        allInputs[i].dataset.name = allInputs[i].name;
+      }
+      var fieldVal = getUrlParam(allInputs[i].dataset.name);
+
+      if (fieldVal) {
+        if (allInputs[i].dataset.autofill === "false") {
+          continue;
+        }
+        if (allInputs[i].type == "radio" || allInputs[i].type == "checkbox") {
+          if (allInputs[i].value == fieldVal) {
+            allInputs[i].checked = true;
+          }
+        } else {
+          allInputs[i].value = fieldVal;
+        }
+      }
+    }
+
+    var remove_tooltips = function() {
+      for (var i = 0; i < tooltips.length; i++) {
+        tooltips[i].tip.parentNode.removeChild(tooltips[i].tip);
+      }
+      tooltips = [];
+    };
+    var remove_tooltip = function(elem) {
+      for (var i = 0; i < tooltips.length; i++) {
+        if (tooltips[i].elem === elem) {
+          tooltips[i].tip.parentNode.removeChild(tooltips[i].tip);
+          tooltips.splice(i, 1);
+          return;
+        }
+      }
+    };
+    var create_tooltip = function(elem, text) {
+      var tooltip = document.createElement('div'), arrow = document.createElement('div'), inner = document.createElement('div'), new_tooltip = {};
+      if (elem.type != 'radio' && elem.type != 'checkbox') {
+        tooltip.className = '_error text-sm text-muted text-start';
+        arrow.className = '_error-arrow';
+        inner.className = '_error-inner';
+        inner.innerHTML = text;
+        tooltip.appendChild(arrow);
+        tooltip.appendChild(inner);
+        elem.parentNode.appendChild(tooltip);
+      } else {
+        tooltip.className = '_error-inner _no_arrow';
+        tooltip.innerHTML = text;
+        elem.parentNode.insertBefore(tooltip, elem);
+        new_tooltip.no_arrow = true;
+      }
+      new_tooltip.tip = tooltip;
+      new_tooltip.elem = elem;
+      tooltips.push(new_tooltip);
+      return new_tooltip;
+    };
+    var resize_tooltip = function(tooltip) {
+      var rect = tooltip.elem.getBoundingClientRect();
+      var doc = document.documentElement, scrollPosition = rect.top - ((window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0));
+      if (scrollPosition < 40) {
+        tooltip.tip.className = tooltip.tip.className.replace(/ ?(_above|_below) ?/g, '') + ' _below';
+      } else {
+        tooltip.tip.className = tooltip.tip.className.replace(/ ?(_above|_below) ?/g, '') + ' _above';
+      }
+    };
+    var resize_tooltips = function() {
+      if (_removed) return;
+      for (var i = 0; i < tooltips.length; i++) {
+        if (!tooltips[i].no_arrow) resize_tooltip(tooltips[i]);
+      }
+    };
+    var validate_field = function(elem, remove) {
+      var tooltip = null, value = elem.value, no_error = true;
+      remove ? remove_tooltip(elem) : false;
+      if (elem.type != 'checkbox') elem.className = elem.className.replace(/ ?_has_error ?/g, '');
+      if (elem.getAttribute('required') !== null) {
+        if (elem.type == 'radio' || (elem.type == 'checkbox' && /any/.test(elem.className))) {
+          var elems = form_to_submit.elements[elem.name];
+          if (!(elems instanceof NodeList || elems instanceof HTMLCollection) || elems.length <= 1) {
+            no_error = elem.checked;
+          }
+          else {
+            no_error = false;
+            for (var i = 0; i < elems.length; i++) {
+              if (elems[i].checked) no_error = true;
+            }
+          }
+          if (!no_error) {
+            tooltip = create_tooltip(elem, "Please select an option.");
+          }
+        } else if (elem.type =='checkbox') {
+          var elems = form_to_submit.elements[elem.name], found = false, err = [];
+          no_error = true;
+          for (var i = 0; i < elems.length; i++) {
+            if (elems[i].getAttribute('required') === null) continue;
+            if (!found && elems[i] !== elem) return true;
+            found = true;
+            elems[i].className = elems[i].className.replace(/ ?_has_error ?/g, '');
+            if (!elems[i].checked) {
+              no_error = false;
+              elems[i].className = elems[i].className + ' _has_error';
+              err.push("Checking %s is required".replace("%s", elems[i].value));
+            }
+          }
+          if (!no_error) {
+            tooltip = create_tooltip(elem, err.join('<br/>'));
+          }
+        } else if (elem.tagName == 'SELECT') {
+          var selected = true;
+          if (elem.multiple) {
+            selected = false;
+            for (var i = 0; i < elem.options.length; i++) {
+              if (elem.options[i].selected) {
+                selected = true;
+                break;
+              }
+            }
+          } else {
+            for (var i = 0; i < elem.options.length; i++) {
+              if (elem.options[i].selected && (!elem.options[i].value || (elem.options[i].value.match(/\n/g)))) {
+                selected = false;
+              }
+            }
+          }
+          if (!selected) {
+            elem.className = elem.className + ' _has_error';
+            no_error = false;
+            tooltip = create_tooltip(elem, "Please select an option.");
+          }
+        } else if (value === undefined || value === null || value === '') {
+          elem.className = elem.className + ' _has_error';
+          no_error = false;
+          tooltip = create_tooltip(elem, "This field is required");
+        }
+      }
+      if (no_error && (elem.id == 'field[]' || elem.id == 'ca[11][v]')) {
+        if (elem.className.includes('phone-input-error')) {
+          elem.className = elem.className + ' _has_error';
+          no_error = false;
+        }
+      }
+      if (no_error && elem.name == 'email') {
+        if (!value.match(/^[\+_a-z0-9-'&=]+(\.[\+_a-z0-9-']+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i)) {
+          elem.className = elem.className + ' _has_error';
+          no_error = false;
+          tooltip = create_tooltip(elem, 'Please enter a valid email address');
+        }
+      }
+      if (no_error && /date_field/.test(elem.className)) {
+        if (!value.match(/^\d\d\d\d-\d\d-\d\d$/)) {
+          elem.className = elem.className + ' _has_error';
+          no_error = false;
+          tooltip = create_tooltip(elem, "Enter a valid date.");
+        }
+      }
+      tooltip ? resize_tooltip(tooltip) : false;
+      return no_error;
+    };
+    var needs_validate = function(el) {
+      if(el.getAttribute('required') !== null){
+        return true
+      }
+      if(el.name === 'email' && el.value !== ""){
+        return true
+      }
+
+      if((el.id == 'field[]' || el.id == 'ca[11][v]') && el.className.includes('phone-input-error')){
+        return true
+      }
+
+      return false
+    };
+    var validate_form = function(e) {
+      var err = form_to_submit.querySelector('._form_error'), no_error = true;
+      if (!submitted) {
+        submitted = true;
+        for (var i = 0, len = allInputs.length; i < len; i++) {
+          var input = allInputs[i];
+          if (needs_validate(input)) {
+            if (input.type == 'tel') {
+              addEvent(input, 'blur', function() {
+                this.value = this.value.trim();
+                validate_field(this, true);
+              });
+            }
+            if (input.type == 'text' || input.type == 'number' || input.type == 'time') {
+              addEvent(input, 'blur', function() {
+                this.value = this.value.trim();
+                validate_field(this, true);
+              });
+              addEvent(input, 'input', function() {
+                validate_field(this, true);
+              });
+            } else if (input.type == 'radio' || input.type == 'checkbox') {
+              (function(el) {
+                var radios = form_to_submit.elements[el.name];
+                for (var i = 0; i < radios.length; i++) {
+                  addEvent(radios[i], 'click', function() {
+                    validate_field(el, true);
+                  });
+                }
+              })(input);
+            } else if (input.tagName == 'SELECT') {
+              addEvent(input, 'change', function() {
+                validate_field(this, true);
+              });
+            } else if (input.type == 'textarea'){
+              addEvent(input, 'input', function() {
+                validate_field(this, true);
+              });
+            }
+          }
+        }
+      }
+      remove_tooltips();
+      for (var i = 0, len = allInputs.length; i < len; i++) {
+        var elem = allInputs[i];
+        if (needs_validate(elem)) {
+          if (elem.tagName.toLowerCase() !== "select") {
+            elem.value = elem.value.trim();
+          }
+          validate_field(elem) ? true : no_error = false;
+        }
+      }
+      if (!no_error && e) {
+        e.preventDefault();
+      }
+      resize_tooltips();
+      return no_error;
+    };
+    addEvent(window, 'resize', resize_tooltips);
+    addEvent(window, 'scroll', resize_tooltips);
+
+    var hidePhoneInputError = function(inputId) {
+      var errorMessage =  document.getElementById("error-msg-" + inputId);
+      var input = document.getElementById(inputId);
+      errorMessage.classList.remove("phone-error");
+      errorMessage.classList.add("phone-error-hidden");
+      input.classList.remove("phone-input-error");
+    };
+
+    var initializePhoneInput = function(input, defaultCountry) {
+      return window.intlTelInput(input, {
+        utilsScript: "https://unpkg.com/intl-tel-input@17.0.18/build/js/utils.js",
+        autoHideDialCode: false,
+        separateDialCode: true,
+        initialCountry: defaultCountry,
+        preferredCountries: []
+      });
+    }
+
+    var setPhoneInputEventListeners = function(inputId, input, iti) {
+      input.addEventListener('blur', function() {
+        var errorMessage = document.getElementById("error-msg-" + inputId);
+        if (input.value.trim()) {
+          if (iti.isValidNumber()) {
+            iti.setNumber(iti.getNumber());
+            if (errorMessage.classList.contains("phone-error")){
+              hidePhoneInputError(inputId);
+            }
+          } else {
+            showPhoneInputError(inputId)
+          }
+        } else {
+          if (errorMessage.classList.contains("phone-error")){
+            hidePhoneInputError(inputId);
+          }
+        }
+      });
+
+      input.addEventListener("countrychange", function() {
+        iti.setNumber('');
+      });
+
+      input.addEventListener("keydown", function(e) {
+        var charCode = (e.which) ? e.which : e.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57) && charCode !== 8) {
+          e.preventDefault();
+        }
+      });
+    };
+
+    var showPhoneInputError = function(inputId) {
+      var errorMessage =  document.getElementById("error-msg-" + inputId);
+      var input = document.getElementById(inputId);
+      errorMessage.classList.add("phone-error");
+      errorMessage.classList.remove("phone-error-hidden");
+      input.classList.add("phone-input-error");
+    };
+
+
+    var form_submit = function(e) {
+      e.preventDefault();
+      if (validate_form()) {
+        // use this trick to get the submit button & disable it using plain javascript
+        document.querySelector('#_form_13_submit').disabled = true;
+        var _form_serialize_13 = function(form){if(!form||form.nodeName!=="FORM"){return }var i,j,q=[];for(i=0;i<form.elements.length;i++){if(form.elements[i].name===""){continue}switch(form.elements[i].nodeName){case"INPUT":switch(form.elements[i].type){case"tel":q.push(form.elements[i].name+"="+encodeURIComponent(form.elements[i].previousSibling.querySelector('div.iti__selected-dial-code').innerText)+encodeURIComponent(" ")+encodeURIComponent(form.elements[i].value));break;case"text":case"number":case"date":case"time":case"hidden":case"password":case"button":case"reset":case"submit":q.push(form.elements[i].name+"="+encodeURIComponent(form.elements[i].value));break;case"checkbox":case"radio":if(form.elements[i].checked){q.push(form.elements[i].name+"="+encodeURIComponent(form.elements[i].value))}break;case"file":break}break;case"TEXTAREA":q.push(form.elements[i].name+"="+encodeURIComponent(form.elements[i].value));break;case"SELECT":switch(form.elements[i].type){case"select-one":q.push(form.elements[i].name+"="+encodeURIComponent(form.elements[i].value));break;case"select-multiple":for(j=0;j<form.elements[i].options.length;j++){if(form.elements[i].options[j].selected){q.push(form.elements[i].name+"="+encodeURIComponent(form.elements[i].options[j].value))}}break}break;case"BUTTON":switch(form.elements[i].type){case"reset":case"submit":case"button":q.push(form.elements[i].name+"="+encodeURIComponent(form.elements[i].value));break}break}}return q.join("&")};
+        let serialized_13 = _form_serialize_13(document.getElementById('_form_13_')).replace(/%0A/g, '\\n');
+        var err = form_to_submit.querySelector('._form_error');
+        err ? err.parentNode.removeChild(err) : false;
+        // We don't check the Google reCaptcha if projectId is null
+        
+            // Site properties: ProjectId is defined => we check the captcha before sending the form
+            _check_reCaptcha_13();
+          
+      }
+      return false;
+    };
+    addEvent(form_to_submit, 'submit', form_submit);
+  })();
+
+</script><!-- p class="text-xs">To learn how your data will be used, please see our <a href="https://www.iso.org/privacy.html" title="privacy-and-copyright">privacy notice</a>. This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.</p -->
+<details class="text-xs"><summary style="color:inherit">How your data will be used</summary>
+<p class="pt-2">Please see <a href="/privacy.html" title="privacy-and-copyright">ISO privacy notice</a>. This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.</p>
+</details></div></div><figure class="width-100pct figure-video" elementtiming="vimeo">
+  <div class="vimeo-player">
+    <lite-vimeo videoid="881717161" style="aspect-ratio: 16/9; background: radial-gradient(lightgray, darkgray);">
+      <a href="https://vimeo.com/881717161" class="ltv-playbtn" title="View on Vimeo"></a>
+      <div class="cmp-notice bg-danger">
+        <strong>Cookie consent is required</strong>
+        <br/>
+        <a href="https://vimeo.com/881717161" title="View on Vimeo">Please view on Vimeo</a>
+        or<a id="uc-btn" class="" onClick="__ucCmp.showSecondLayer();"> adjust your privacy settings</a>.
+      </div>
+    </lite-vimeo>
+    <figcaption><p>What is ISO 9001: Quick guide to ISO 9001:2015 Quality Management Systems</p>
+</figcaption>
+    </div>
+</figure>
+
+<h2>Benefits&nbsp;of ISO&nbsp;9001</h2>
+
+<ul class="list-unstyled" id="benefits" role="list">
+ <li><i class="bi bi-check-circle-fill text-success"></i><strong>&nbsp;</strong>Increased <strong>customer trust </strong>and satisfaction</li>
+ <li><strong><i class="bi bi-check-circle-fill text-success"></i> </strong>Sound <strong>quality control </strong>processes</li>
+ <li><strong><i class="bi bi-check-circle-fill text-success"></i></strong>&nbsp;Cost savings and<strong> productivity gains </strong></li>
+ <li><strong><i class="bi bi-check-circle-fill text-success"></i></strong>&nbsp;Culture of <strong>continuous improvement</strong></li>
+</ul><h3>FAQ</h3><div class="accordion  faqs" id="id-d0333886-3741-4b81-b24e-86de0fb394b7">
+    <div class="accordion-item">
+    <h3 class="accordion-header" id="heading-6addc59c-4f07-4fbf-95af-e1443440efe3"><button class="accordion-button  collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#id-6addc59c-4f07-4fbf-95af-e1443440efe3" aria-expanded="true" aria-controls="id-6addc59c-4f07-4fbf-95af-e1443440efe3">
+            Who should use the ISO 9001 standard?</button>
+        </h3><div id="id-6addc59c-4f07-4fbf-95af-e1443440efe3" class="accordion-collapse collapse " aria-labelledby="heading-6addc59c-4f07-4fbf-95af-e1443440efe3" data-bs-parent="#id-d0333886-3741-4b81-b24e-86de0fb394b7">
+        <div class="accordion-body">
+            <p>Any organization that wants to improve its quality management system, meet customer and applicable statutory and regulatory requirements, and enhance customer satisfaction can use the ISO&nbsp;9001 standard. It is suitable for organizations of any size, and applies to all sectors, including manufacturing, services, healthcare, education, government, and non-profit organizations. ISO&nbsp;9001 can also be used by certification bodies or other third parties to assess an organization&rsquo;s conformity with this International Standard.</p>
+</div>
+    </div>
+</div><div class="accordion-item">
+    <h3 class="accordion-header" id="heading-a756e3da-b467-4a07-8a23-ccd860e4913c"><button class="accordion-button  collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#id-a756e3da-b467-4a07-8a23-ccd860e4913c" aria-expanded="true" aria-controls="id-a756e3da-b467-4a07-8a23-ccd860e4913c">
+            Is there a standard adapting the requirements of ISO 9001 to my sector?</button>
+        </h3><div id="id-a756e3da-b467-4a07-8a23-ccd860e4913c" class="accordion-collapse collapse " aria-labelledby="heading-a756e3da-b467-4a07-8a23-ccd860e4913c" data-bs-parent="#id-d0333886-3741-4b81-b24e-86de0fb394b7">
+        <div class="accordion-body">
+            <p>ISO has a range of standards for quality management systems that are based on ISO 9001 and adapted to specific sectors and industries. These include:</p>
+
+<ul>
+ <li><a href="/standard/59752.html" title="59752"><span style="color:#000000;">ISO 13485 on&nbsp;</span><strong>medical devices</strong></a>&nbsp;</li>
+ <li><a href="/standard/75288.html" title="75288"><span style="color:#000000;">ISO/TS 54001 on </span><strong>elections</strong> at all levels of government</a></li>
+ <li><a href="/standard/72808.html" title="72808"><span style="color:#000000;">ISO 18091 on</span>&nbsp;<strong>local government</strong> sector applications</a></li>
+ <li><a href="/standard/79427.html" title="79427"><span style="color:#000000;">ISO 22163 on</span>&nbsp;<strong>railway</strong>&nbsp;sector applications&nbsp;</a></li>
+ <li><a href="/standard/67773.html" title="67773"><span style="color:#000000;">ISO 29001 on&nbsp;</span><strong>petroleum</strong>, <strong>petrochemical</strong> and <strong>natural gas</strong>-related products and services</a></li>
+ <li><a href="/standard/74348.html" title="74348"><span style="color:#000000;">ISO/IEC/IEEE 90003 on&nbsp;</span><strong>computer software</strong></a></li>
+</ul>
+</div>
+    </div>
+</div><div class="accordion-item">
+    <h3 class="accordion-header" id="heading-e10922bb-83dd-4be3-9048-faa94729e870"><button class="accordion-button  collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#id-e10922bb-83dd-4be3-9048-faa94729e870" aria-expanded="true" aria-controls="id-e10922bb-83dd-4be3-9048-faa94729e870">
+            What topics does ISO 9001 cover?</button>
+        </h3><div id="id-e10922bb-83dd-4be3-9048-faa94729e870" class="accordion-collapse collapse " aria-labelledby="heading-e10922bb-83dd-4be3-9048-faa94729e870" data-bs-parent="#id-d0333886-3741-4b81-b24e-86de0fb394b7">
+        <div class="accordion-body">
+            <p>The ISO&nbsp;9001 standard specifies requirements for the <strong>establishment</strong>, <strong>maintenance</strong>, and <strong>continuous improvement</strong> of a <strong>quality management system</strong>, covering a wide range of topics including:</p>
+
+<ol>
+ <li><strong>Context of the organization</strong>: ISO&nbsp;9001 requires organizations to determine the external and internal factors that affect their ability to achieve the intended results of their quality management system.</li>
+ <li><strong>Leadership</strong>: The standard emphasizes the importance of leadership in implementing and maintaining a quality management system.</li>
+ <li><strong>Planning</strong>: The quality management system must include measures&nbsp;designed to achieve an organization&rsquo;s quality objectives and continuously improve the system&rsquo;s effectiveness.</li>
+ <li><strong>Support</strong>: ISO&nbsp;9001 addresses issues such as resources, competence, awareness, communication and documented information.</li>
+ <li><strong>Operation</strong>: The processes necessary to meet customer requirements and increase customer satisfaction must be planned, implemented and controlled.</li>
+ <li><strong>Performance evaluation</strong>: The standard requires organizations to monitor, measure, analyze and evaluate the performance and effectiveness of their quality management system.</li>
+ <li><strong>Improvement</strong>: ISO&nbsp;9001 emphasizes the importance of continuously increasing the effectiveness of the quality management system based on the results of performance evaluation and other data sources.</li>
+</ol>
+
+<p>Overall, ISO&nbsp;9001 helps organizations address <strong>all aspects of managing the quality of their products and services</strong>, with an emphasis on customer satisfaction and constant enhancement of the quality management system.</p>
+</div>
+    </div>
+</div><div class="accordion-item">
+    <h3 class="accordion-header" id="heading-9baa3bb0-249a-4793-a546-eb93ffef206c"><button class="accordion-button  collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#id-9baa3bb0-249a-4793-a546-eb93ffef206c" aria-expanded="true" aria-controls="id-9baa3bb0-249a-4793-a546-eb93ffef206c">
+            Why is another revision for ISO 9001 under development?</button>
+        </h3><div id="id-9baa3bb0-249a-4793-a546-eb93ffef206c" class="accordion-collapse collapse " aria-labelledby="heading-9baa3bb0-249a-4793-a546-eb93ffef206c" data-bs-parent="#id-d0333886-3741-4b81-b24e-86de0fb394b7">
+        <div class="accordion-body">
+            <p>The fifth and current edition of ISO 9001 was published in 2015.&nbsp;Ensuring that all ISO standards remain current and relevant for the marketplace is crucial. After extensive international consultation, a consensus was reached in August 2023 that revising the standard would add value. This revision aims to align ISO 9001 with the current needs of standard users and the communities they serve.</p>
+</div>
+    </div>
+</div><div class="accordion-item">
+    <h3 class="accordion-header" id="heading-27b6cd63-961e-41bb-97d3-fad2ed80b441"><button class="accordion-button  collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#id-27b6cd63-961e-41bb-97d3-fad2ed80b441" aria-expanded="true" aria-controls="id-27b6cd63-961e-41bb-97d3-fad2ed80b441">
+            When will the next edition of ISO 9001 be published?</button>
+        </h3><div id="id-27b6cd63-961e-41bb-97d3-fad2ed80b441" class="accordion-collapse collapse " aria-labelledby="heading-27b6cd63-961e-41bb-97d3-fad2ed80b441" data-bs-parent="#id-d0333886-3741-4b81-b24e-86de0fb394b7">
+        <div class="accordion-body">
+            <p>The revised version of ISO 9001 is expected to be published in September 2026.</p>
+</div>
+    </div>
+</div><div class="accordion-item">
+    <h3 class="accordion-header" id="heading-4107ce6d-9002-4b12-9bdd-551c67c32950"><button class="accordion-button  collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#id-4107ce6d-9002-4b12-9bdd-551c67c32950" aria-expanded="true" aria-controls="id-4107ce6d-9002-4b12-9bdd-551c67c32950">
+            I am certified to ISO 9001:2015. What does this revision mean for me?</button>
+        </h3><div id="id-4107ce6d-9002-4b12-9bdd-551c67c32950" class="accordion-collapse collapse " aria-labelledby="heading-4107ce6d-9002-4b12-9bdd-551c67c32950" data-bs-parent="#id-d0333886-3741-4b81-b24e-86de0fb394b7">
+        <div class="accordion-body">
+            <p>The publication of the revised standard will present an excellent opportunity for you to <strong>review and update your quality management system</strong>. Take this chance to ensure that your system effectively addresses any changes and aligns well with your needs, as well as those of your customers and other stakeholders. At the time of publication, ample information will be provided about the updates made and how they may impact organizations. To stay informed and receive timely notifications, we invite you to&nbsp;<a href="#subscribe" title="Subscription box">subscribe to our email updates</a>.</p>
+
+<p>In terms of validity of their certificates, organizations certified to ISO&nbsp;9001:2015 will be granted a <strong>transition period</strong> to migrate their quality management system to the new edition of the standard.</p>
+</div>
+    </div>
+</div><div class="accordion-item">
+    <h3 class="accordion-header" id="heading-8a5d2c80-5d63-4209-872e-f335db518fe6"><button class="accordion-button  collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#id-8a5d2c80-5d63-4209-872e-f335db518fe6" aria-expanded="true" aria-controls="id-8a5d2c80-5d63-4209-872e-f335db518fe6">
+            What is ISO 9001 certification and does my organization need to get certified? </button>
+        </h3><div id="id-8a5d2c80-5d63-4209-872e-f335db518fe6" class="accordion-collapse collapse " aria-labelledby="heading-8a5d2c80-5d63-4209-872e-f335db518fe6" data-bs-parent="#id-d0333886-3741-4b81-b24e-86de0fb394b7">
+        <div class="accordion-body">
+            <p>Certification to ISO&nbsp;9001 is one way to demonstrate to stakeholders and customers that you are committed and able to consistently deliver high quality products or services. Holding a certificate issued by an accredited conformity assessment body may bring an additional layer of confidence, as an accreditation body has provided independent confirmation of the certification body&rsquo;s competence.</p>
+
+<p>As with other ISO management system standards, companies implementing ISO&nbsp;9001 can choose whether they want to go through a certification process or not.</p>
+
+<p>Checking that the system works is a vital part of ISO&nbsp;9001. The standard recommends that an organization performs internal audits to check how its quality management system is working. An organization may decide to invite an independent certification body to verify that it is in conformity with the standard, but there is no requirement for this. Alternatively, you might invite your clients to audit the quality system for themselves.</p>
+
+<p>As in other contexts, standards should always be referred to with their full reference in statements on certification such as &ldquo;certified to ISO&nbsp;9001:2015&rdquo; (not just: &ldquo;certified to ISO&nbsp;9001). If you wish to use a logo to demonstrate certification, please contact the certification body that issued your certificate. See full details about <a href="/iso-name-and-logo.html" title="iso-name-and-logo">use of the ISO logo</a>.</p>
+</div>
+    </div>
+</div><div class="accordion-item">
+    <h3 class="accordion-header" id="heading-5f3c683a-6c86-4c60-9a9e-af84ccbe8be8"><button class="accordion-button  collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#id-5f3c683a-6c86-4c60-9a9e-af84ccbe8be8" aria-expanded="true" aria-controls="id-5f3c683a-6c86-4c60-9a9e-af84ccbe8be8">
+            Where can I find help with auditing ISO 9001?</button>
+        </h3><div id="id-5f3c683a-6c86-4c60-9a9e-af84ccbe8be8" class="accordion-collapse collapse " aria-labelledby="heading-5f3c683a-6c86-4c60-9a9e-af84ccbe8be8" data-bs-parent="#id-d0333886-3741-4b81-b24e-86de0fb394b7">
+        <div class="accordion-body">
+            <p>Support on auditing quality management systems can be found on the website of the <a href="https://committee.iso.org/home/tc176/iso-9001-auditing-practices-group.html" title="Auditing quality management systems - informal group of QMS experts, auditors and practitioners ">ISO&nbsp;9001 Auditing Practices Group</a>. This is an informal group of quality management system experts, auditors and practitioners from ISO/TC&nbsp;176 and the International Accreditation Forum.</p>
+</div>
+    </div>
+</div><div class="accordion-item">
+    <h3 class="accordion-header" id="heading-37991d86-91f9-4e9e-b8d8-d7472429cf4b"><button class="accordion-button  collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#id-37991d86-91f9-4e9e-b8d8-d7472429cf4b" aria-expanded="true" aria-controls="id-37991d86-91f9-4e9e-b8d8-d7472429cf4b">
+            What is the ISO definition of quality?</button>
+        </h3><div id="id-37991d86-91f9-4e9e-b8d8-d7472429cf4b" class="accordion-collapse collapse " aria-labelledby="heading-37991d86-91f9-4e9e-b8d8-d7472429cf4b" data-bs-parent="#id-d0333886-3741-4b81-b24e-86de0fb394b7">
+        <div class="accordion-body">
+            <p>A definition of quality is part of the core vocabulary for quality management which can be found in <a href="/standard/45481.html" title="ISO 9000:2015 - Quality management systems — Fundamentals and vocabulary">ISO 9000:2015</a>&nbsp; and applies to all ISO quality management standards, including ISO 9001. It says that quality is the &ldquo;degree to which a set of inherent characteristics [or distinguishing features] of an object&rdquo;, which in turn is defined as anything perceivable or conceivable, such as a product, service, process, person, organization, system or resource, &ldquo;fulfils requirements.&rdquo;</p>
+</div>
+    </div>
+</div><div class="accordion-item">
+    <h3 class="accordion-header" id="heading-7cc85b73-f721-4764-86b4-eb13ab57bebe"><button class="accordion-button  collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#id-7cc85b73-f721-4764-86b4-eb13ab57bebe" aria-expanded="true" aria-controls="id-7cc85b73-f721-4764-86b4-eb13ab57bebe">
+            What is the difference between ISO 9001 and ISO 14001?</button>
+        </h3><div id="id-7cc85b73-f721-4764-86b4-eb13ab57bebe" class="accordion-collapse collapse " aria-labelledby="heading-7cc85b73-f721-4764-86b4-eb13ab57bebe" data-bs-parent="#id-d0333886-3741-4b81-b24e-86de0fb394b7">
+        <div class="accordion-body">
+            <p>ISO&nbsp;9001 and ISO&nbsp;14001 are both International Standards for organizational management but they have different goals. ISO&nbsp;9001 helps organizations improve their quality management and customer satisfaction. ISO&nbsp;14001 helps organizations reduce their environmental impact and promote sustainability. ISO standards that look at <strong>different types of management systems</strong>, such as ISO&nbsp;9001 for quality and <a href="/standard/60857.html" title="60857">ISO&nbsp;14001 for environmental management</a>, are all structured in the same way. This means that companies using one ISO management standard will find it <strong>easy to integrate </strong>other aspects of organizational management into their existing management system.</p>
+</div>
+    </div>
+</div><div class="accordion-item">
+    <h3 class="accordion-header" id="heading-87e99912-f2f4-451c-95cf-cba008716b7c"><button class="accordion-button  collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#id-87e99912-f2f4-451c-95cf-cba008716b7c" aria-expanded="true" aria-controls="id-87e99912-f2f4-451c-95cf-cba008716b7c">
+            What is the difference between ISO 9001 and ISO 13485?</button>
+        </h3><div id="id-87e99912-f2f4-451c-95cf-cba008716b7c" class="accordion-collapse collapse " aria-labelledby="heading-87e99912-f2f4-451c-95cf-cba008716b7c" data-bs-parent="#id-d0333886-3741-4b81-b24e-86de0fb394b7">
+        <div class="accordion-body">
+            <p>The International Standards ISO&nbsp;9001 and ISO&nbsp;13485 both define requirements for quality management systems, but one has a much broader user group than the other. ISO&nbsp;9001 provides a quality management framework that can apply to organizations of any size or sector. ISO&nbsp;13485, on the other hand, has been developed specifically for the medical device industry with a focus on regulatory compliance. The standard helps ensure the safety and effectiveness of medical devices, including risk management, traceability and process validation. Compared to ISO&nbsp;9001, it contains additional requirements specific to organizations involved in the life cycle of medical devices, whereas elements of ISO&nbsp;9001 that are not relevant as regulatory requirements are not part of ISO&nbsp;13485.</p>
+
+<p>In short, while ISO&nbsp;9001 sets out a <strong>general framework</strong> for quality management, <a href="/standard/59752.html" title="ISO 13485 on Medical devices — Quality management systems — Requirements for regulatory purposes">ISO&nbsp;13485</a> provides <strong>specific guidance for the medical device industry</strong>.</p>
+</div>
+    </div>
+</div></div></div>
+
+        <div class="col-md-4 col-md-offset-1">
+
+          <h3>Buy together</h3><!-- Recommmended CS82875-PUB100484 -->
+<div class="card">
+<div class="card-body"><span class="badge badge-card rounded-pill bg-dark"><i class="bi-box-regular me-2"></i>Bundle<span class="text-warning"> - 10% discount</span></span>
+<h5 class="mt-2"><a href="/publication/PUB200900.html" title="PUB200900">ISO 9001 SME success package</a></h5>
+
+<p>Empowering small enterprises with practical guidance.</p>
+
+<ul class="list-unstyled">
+	<li><i class="bi bi-file-regular me-2"></i>ISO 9001:2015<br />
+	<i class="bi bi-book-regular me-2"></i>ISO 9001:2015&nbsp;for Small Enterprises - What to do?</li>
+</ul>
+</div>
+
+<div class="card-footer d-flex justify-content-between align-items-center"><span class="format text-sm text-muted">English | PDF</span>
+
+<div class="orderBasket"><span class="text-xs text-warning text-decoration-line-through"><span>CHF</span> <span class="fw-bold">223</span></span><span class="ms-2"><span>CHF</span> <span class="fw-bold" id="productPrice_cs82875-pub100484">200</span></span><!--      <button class="btn btn-outline-primary btn-sm" data-bs-target="#iso-optout" data-bs-toggle="modal" id="add_cs82875-pub100484" onclick="javascript:loadBasket('cs82875-pub100484', 'std-pub', '1', 'en')">Add to cart</button>--></div>
+</div>
+</div><div class="d-flex justify-content-between align-items-center">
+  <h2>General information</h2>
+</div>
+<ul class="refine mt-0">
+  <li>
+    <div class="" id="publicationStatus">
+      <div class="entry-label">Status</div>&nbsp;:&nbsp;<span>Published</span>
+      </div>
+    <div class="" id="publicationDate">
+      <div class="entry-label">Publication date</div>&nbsp;:&nbsp;<span itemprop="releaseDate">2015-09</span>
+      <br/>
+        <div class="entry-label">Corrected version (fr)</div>&nbsp;:&nbsp;<span itemprop="dateModified">2015-09</span>
+      </div>
+
+    <div class="" id="stageId">
+        <div class="entry-label">Stage</div> : International Standard to be revised [<a class="page-scroll" href="#lifecycle">90.92</a>]
+      </div>
+    </li>
+  <li>
+    <div class="">
+      <div class="entry-label">Edition</div>&nbsp;:&nbsp;5</div>
+    <div class="">
+      <div class="entry-label">Number of pages</div>&nbsp;:&nbsp;29</div>
+  </li>
+
+  <li>
+    <div>
+        <div class="entry-label">Technical Committee&nbsp;:</div>
+        <span class="entry-name entry-block">
+          <a title="Quality systems" href="/committee/53896.html">ISO/TC 176/SC 2</a></span>
+      </div>
+    <div>
+      <div class="entry-label"><abbr class="popover-primary" tabindex="0" role="button" data-bs-toggle="popover" data-bs-custom-class="popover-light text-sm shadow-sm pt-2" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-content="International Classification for Standards">ICS</abbr>&nbsp;:</div>
+        <span class="entry-name entry-block">
+            <a title="Management systems" href="/ics/03.100.70.html">
+                03.100.70</a>&nbsp;
+          </span>
+        <span class="entry-name entry-block">
+            <a title="Quality management and quality assurance" href="/ics/03.120.10.html">
+                03.120.10</a>&nbsp;
+          </span>
+        </div>
+  </li>
+  <li class="text-xs">
+    <i class="bi-rss-fill me-1 align-baseline text-sm" style="color: #F99000;"></i><a href="/contents/data/standard/06/20/62085.detail.rss">RSS</a>&nbsp;updates</li>
+</ul>
+</div>
+      </div>
+    </div>
+  </section>
+
+</div> <section id="amendment" class="readable" elementtiming="StandardAmdDetail">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2><i class="bi bi-arrow-return-right"></i>&nbsp;Amendments</h2>
+          <p>Amendments are issued when it is found that new material may need to be added to an existing standardization document. They may also include editorial or technical corrections to be applied to the existing document.</p><div class="d-sm-flex flex-wrap gap-4">
+              <div class="card store-box buy-box buybox store-box__product heading-condensed" id="cs88431">
+      <div class="card-header">
+        <div class="pt-2">
+
+          <h3><a href="/standard/88431.html">Amendment 1</a></h3>
+          <h4>Climate action changes</h4><p>Edition 2024</p>
+        </div>
+      </div>
+
+      
+<div class="card-body">
+
+  <span class="visually-hidden" id="indexReference_cs88431" data-index="88431 - ISO 9001:2015/Amd 1:2024 - Quality management systems — Requirements — Amendment 1: Climate action changes"></span>
+    <span class="visually-hidden" id="itemReference_cs88431">ISO 9001:2015/Amd 1:2024</span>
+    <div class="visually-hidden" id="csNumber_cs88431">88431</div>
+  <form class="box-option" id="form_cs88431" elementtiming="productOptions">
+    <div class="mb-3">
+      <div class="section-head mb-1 text-sm">
+        Language</div>
+      <div class="form-group">
+        <select class="form-select form-select-sm bkilang" id="bkilang_cs88431">
+
+            <option value="en"  selected>English</option>
+
+            <option value="fr" >French</option>
+
+            <option value="es" >Spanish</option>
+
+            </select>
+      </div>
+    </div>
+    <div class="section-head mb-1 text-sm">
+      Format</div>
+      <div class="formats formats_cs88431" id="bkifmt_cs88431_en" style="display: none;"><div class="form-check text-sm" id="bkifmt_cs88431_en_1">
+                  <input class="form-check-input" data-format="pdf_epub" data-type="std" data-price="0"  checked="checked" type="radio" name="format_en" id="format_cs88431_en_1" value="01uVj000009zuXyIAI~a05b0000005WV4MAAW~a0fVj0000022ujJIAQ~a0cVj000000TSaPIAW"/>
+                  <label class="form-check-label" for="format_cs88431_en_1">PDF + ePub</label>
+                </div><div class="form-check text-sm" id="bkifmt_cs88431_en_2">
+                  <input class="form-check-input" data-format="paper" data-type="std" data-price="0"  type="radio" name="format_en" id="format_cs88431_en_2" value="01uVj000009zuXyIAI~a05b0000005WV4RAAW~a0fVj00000226MmIAI~a0cVj000000TG5EIAW"/>
+                  <label class="form-check-label" for="format_cs88431_en_2">Paper</label>
+                </div></div><div class="formats formats_cs88431" id="bkifmt_cs88431_fr" style="display: none;"><div class="form-check text-sm" id="bkifmt_cs88431_fr_1">
+                  <input class="form-check-input" data-format="pdf_epub" data-type="std" data-price="0"  checked="checked" type="radio" name="format_fr" id="format_cs88431_fr_1" value="01uVj000009zuXyIAI~a05b0000005WV4MAAW~a0fVj0000022uY2IAI~a0cVj000000TSc1IAG"/>
+                  <label class="form-check-label" for="format_cs88431_fr_1">PDF + ePub</label>
+                </div><div class="form-check text-sm" id="bkifmt_cs88431_fr_2">
+                  <input class="form-check-input" data-format="paper" data-type="std" data-price="0"  type="radio" name="format_fr" id="format_cs88431_fr_2" value="01uVj000009zuXyIAI~a05b0000005WV4RAAW~a0fVj00000227U6IAI~a0cVj000000TG4bIAG"/>
+                  <label class="form-check-label" for="format_cs88431_fr_2">Paper</label>
+                </div></div><div class="formats formats_cs88431" id="bkifmt_cs88431_es" style="display: none;"><div class="form-check text-sm" id="bkifmt_cs88431_es_1">
+                  <input class="form-check-input" data-format="pdf_epub" data-type="std" data-price="0"  checked="checked" type="radio" name="format_es" id="format_cs88431_es_1" value="01uVj000009zuXyIAI~a05b0000005WV4MAAW~a0fVj000002glPZIAY~a0cVj000000auRtIAI"/>
+                  <label class="form-check-label" for="format_cs88431_es_1">PDF + ePub</label>
+                </div><div class="form-check text-sm" id="bkifmt_cs88431_es_2">
+                  <input class="form-check-input" data-format="paper" data-type="std" data-price="0"  type="radio" name="format_es" id="format_cs88431_es_2" value="01uVj000009zuXyIAI~a05b0000005WV4RAAW~a0fVj000002glRBIAY~a0cVj000000auTVIAY"/>
+                  <label class="form-check-label" for="format_cs88431_es_2">Paper</label>
+                </div></div></form>
+
+  <div class="align-items-baseline box-price pb-0" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+    <div class="d-flex justify-content-center align-items-baseline gap-2">
+      <link itemprop="url" href="https://www.iso.org:-1/standard/62085.html" />
+      <meta itemprop="availability" content="https://schema.org/InStock" />
+      <span class="currency"><abbr title="Swiss francs" itemprop="priceCurrency">CHF</abbr></span>
+      <span class="price d-flex align-items-baseline gap-2">
+      <span class="amount" id="productPrice_cs88431" itemprop="price">0</span>
+    </span>
+    </div>
+  </div>
+
+  <div class="d-grid orderBasket box-action pt-0">
+    <button id="add_cs88431" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#iso-optout" onclick="javascript:addToBasket('cs88431', '1', 'en', 'cs')">
+      Add to cart</button>
+  </div>
+</div>
+<div class="card-footer text-xs text-center">
+  <div class="shippingCost d-none text-warning">* Shipping costs not included</div>
+  </div>
+
+
+</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+<section id="lifecycle" class="z-2" elementtiming="standardLifecycle">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Life cycle</h2>
+        <div class="lifecycle">
+          <ul class="steps">
+            <li class="time-step">
+                <h3 class="ms-sm-3 text-muted">Previously</h3>
+                <div class="step step-dark">
+                  <div class="step-item">
+                    <div class="section-head">Withdrawn</div>
+                    <h4><a href="/standard/46486.html">ISO 9001:2008</a></h4>
+                  </div>
+                <div class="step-item">
+                    <div class="section-head">Withdrawn</div>
+                    <h4><a href="/standard/54538.html">ISO 9001:2008/Cor 1:2009</a></h4>
+                  </div>
+                </div>
+              </li>
+            <li class="time-step">
+              <h3 class="ms-sm-3 text-muted">Now</h3>
+
+              <div class="step step-success active">
+                  <div class="section-head">Published</div>
+                  <h4>ISO 9001:2015</h4>
+                  <i>A standard is reviewed every 5 years</i><br/><a data-bs-toggle="collapse" role="button" aria-expanded="false" href="#stages" class="dropdown-toggle current-stage text-sm collapsed">Stage: <strong>90.92</strong> (To be revised)</a>
+            </div>
+              <ul class="stages collapse" id="stages">
+                <li class="dropdown alert-info">
+
+                      <a href="javascript:void(0)"  role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="stage-code">00</span>
+                        <div class="stage-title">Preliminary</div>
+                      </a>
+
+                      </li>
+                  <li class="dropdown alert-info">
+
+                      <a href="javascript:void(0)" class="dropdown-toggle" data-bs-display="static" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="stage-code">10</span>
+                        <div class="stage-title">Proposal</div>
+                      </a>
+
+                      <ul class="dropdown-menu">
+                            <li >
+                            <a href="/stage-codes.html#10_99">
+                              <span class="stage-code">10.99</span>
+                              <span class="stage-date">2012-10-05</span>
+                              <div class="stage-title">
+                                New project approved</div>
+                            </a>
+                          </li></ul>
+                      </li>
+                  <li class="dropdown alert-info">
+
+                      <a href="javascript:void(0)"  role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="stage-code">20</span>
+                        <div class="stage-title">Preparatory</div>
+                      </a>
+
+                      </li>
+                  <li class="dropdown alert-info">
+
+                      <a href="javascript:void(0)" class="dropdown-toggle" data-bs-display="static" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="stage-code">30</span>
+                        <div class="stage-title">Committee</div>
+                      </a>
+
+                      <ul class="dropdown-menu">
+                            <li >
+                            <a href="/stage-codes.html#30_00">
+                              <span class="stage-code">30.00</span>
+                              <span class="stage-date">2013-06-03</span>
+                              <div class="stage-title">
+                                Committee draft (CD) registered</div>
+                            </a>
+                          </li><li >
+                            <a href="/stage-codes.html#30_20">
+                              <span class="stage-code">30.20</span>
+                              <span class="stage-date">2013-06-04</span>
+                              <div class="stage-title">
+                                CD consultation initiated</div>
+                            </a>
+                          </li><li >
+                            <a href="/stage-codes.html#30_60">
+                              <span class="stage-code">30.60</span>
+                              <span class="stage-date">2013-09-12</span>
+                              <div class="stage-title">
+                                Close of comment period</div>
+                            </a>
+                          </li><li >
+                            <a href="/stage-codes.html#30_99">
+                              <span class="stage-code">30.99</span>
+                              <span class="stage-date">2013-11-12</span>
+                              <div class="stage-title">
+                                CD approved for registration as DIS</div>
+                            </a>
+                          </li></ul>
+                      </li>
+                  <li class="dropdown alert-info">
+
+                      <a href="javascript:void(0)" class="dropdown-toggle" data-bs-display="static" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="stage-code">40</span>
+                        <div class="stage-title">Enquiry</div>
+                      </a>
+
+                      <ul class="dropdown-menu">
+                            <li >
+                            <a href="/stage-codes.html#40_00">
+                              <span class="stage-code">40.00</span>
+                              <span class="stage-date">2014-05-09</span>
+                              <div class="stage-title">
+                                DIS registered</div>
+                            </a>
+                          </li><li >
+                            <a href="/stage-codes.html#40_20">
+                              <span class="stage-code">40.20</span>
+                              <span class="stage-date">2014-07-10</span>
+                              <div class="stage-title">
+                                DIS ballot initiated: 12 weeks</div>
+                            </a>
+                          </li><li >
+                            <a href="/stage-codes.html#40_60">
+                              <span class="stage-code">40.60</span>
+                              <span class="stage-date">2014-10-12</span>
+                              <div class="stage-title">
+                                Close of voting</div>
+                            </a>
+                          </li><li >
+                            <a href="/stage-codes.html#40_99">
+                              <span class="stage-code">40.99</span>
+                              <span class="stage-date">2015-02-17</span>
+                              <div class="stage-title">
+                                Full report circulated: DIS approved for registration as FDIS</div>
+                            </a>
+                          </li></ul>
+                      </li>
+                  <li class="dropdown alert-info">
+
+                      <a href="javascript:void(0)" class="dropdown-toggle" data-bs-display="static" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="stage-code">50</span>
+                        <div class="stage-title">Approval</div>
+                      </a>
+
+                      <ul class="dropdown-menu">
+                            <li >
+                            <a href="/stage-codes.html#50_00">
+                              <span class="stage-code">50.00</span>
+                              <span class="stage-date">2015-05-05</span>
+                              <div class="stage-title">
+                                Final text received or FDIS registered for formal approval</div>
+                            </a>
+                          </li><li >
+                            <a href="/stage-codes.html#50_20">
+                              <span class="stage-code">50.20</span>
+                              <span class="stage-date">2015-07-09</span>
+                              <div class="stage-title">
+                                Proof sent to secretariat or FDIS ballot initiated: 8 weeks</div>
+                            </a>
+                          </li><li >
+                            <a href="/stage-codes.html#50_60">
+                              <span class="stage-code">50.60</span>
+                              <span class="stage-date">2015-09-11</span>
+                              <div class="stage-title">
+                                Close of voting. Proof returned by secretariat</div>
+                            </a>
+                          </li></ul>
+                      </li>
+                  <li class="dropdown alert-success">
+
+                      <a href="javascript:void(0)" class="dropdown-toggle" data-bs-display="static" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="stage-code">60</span>
+                        <div class="stage-title">Publication</div>
+                      </a>
+
+                      <ul class="dropdown-menu">
+                            <li >
+                            <a href="/stage-codes.html#60_00">
+                              <span class="stage-code">60.00</span>
+                              <span class="stage-date">2015-09-11</span>
+                              <div class="stage-title">
+                                International Standard under publication</div>
+                            </a>
+                          </li><li >
+                            <a href="/stage-codes.html#60_60">
+                              <span class="stage-code">60.60</span>
+                              <span class="stage-date">2015-09-22</span>
+                              <div class="stage-title">
+                                International Standard published</div>
+                            </a>
+                          </li></ul>
+                      </li>
+                  <li class="dropdown bg-success active">
+
+                      <a href="javascript:void(0)" class="dropdown-toggle" data-bs-display="static" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="stage-code">90</span>
+                        <div class="stage-title">Review</div>
+                      </a>
+
+                      <ul class="dropdown-menu">
+                            <li  class='list-separation'>
+                            <a href="/stage-codes.html#90_20">
+                              <span class="stage-code">90.20</span>
+                              <span class="stage-date">2020-07-15</span>
+                              <div class="stage-title">
+                                International Standard under systematic review</div>
+                            </a>
+                          </li><li >
+                            <a href="/stage-codes.html#90_60">
+                              <span class="stage-code">90.60</span>
+                              <span class="stage-date">2020-12-03</span>
+                              <div class="stage-title">
+                                Close of review</div>
+                            </a>
+                          </li><li >
+                            <a href="/stage-codes.html#90_93">
+                              <span class="stage-code">90.93</span>
+                              <span class="stage-date">2021-05-20</span>
+                              <div class="stage-title">
+                                International Standard confirmed</div>
+                            </a>
+                          </li><li class="active">
+                            <a href="/stage-codes.html#90_92">
+                              <span class="stage-code">90.92</span>
+                              <span class="stage-date">2023-11-16</span>
+                              <div class="stage-title">
+                                International Standard to be revised</div>
+                            </a>
+                          </li><li >
+                            <a href="/stage-codes.html#90_93">
+                              <span class="stage-code">90.93</span>
+                              <span class="stage-date"></span>
+                              <div class="stage-title">
+                                International Standard confirmed</div>
+                            </a>
+                          </li><li >
+                            <a href="/stage-codes.html#90_99">
+                              <span class="stage-code">90.99</span>
+                              <span class="stage-date"></span>
+                              <div class="stage-title">
+                                Withdrawal of International Standard proposed by TC or SC</div>
+                            </a>
+                          </li></ul>
+                      </li>
+                  <li class="dropdown alert-muted">
+
+                      <a href="javascript:void(0)" class="dropdown-toggle" data-bs-display="static" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="stage-code">95</span>
+                        <div class="stage-title">Withdrawal</div>
+                      </a>
+
+                      <ul class="dropdown-menu">
+                            <li >
+                            <a href="/stage-codes.html#95_99">
+                              <span class="stage-code">95.99</span>
+                              <span class="stage-date"></span>
+                              <div class="stage-title">
+                                Withdrawal of International Standard</div>
+                            </a>
+                          </li></ul>
+                      </li>
+                  </ul>
+
+            <div class="sub-step sub-step-amd">
+                <div class="step step-success">
+                  <h4>Amendments</h4>
+                  <div class="text-sm mb-2" style="max-width: 400px;">Provide additional content; available for purchase; not included in the text of the existing standard.</div>
+                    <div class="step-item bg-success-subtle">
+                        <div class="section-head">Published</div>
+                        <h4><a href="/standard/88431.html" class="text-success">ISO 9001:2015/Amd 1:2024</a></h4>
+                      </div></div>
+              </div>
+              </li>
+            <li class="time-step">
+
+              <h3 class="ms-sm-3 text-muted">Will be replaced by </h3>
+                  <div class="step step-info">
+                <div class="step-item">
+                    <div class="section-head">Under development</div>
+                    <h4><a href="/standard/88464.html">ISO/FDIS 9001</a></h4>
+                  </div></div></li>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="text-center pt-0" id="section-sdg" elementtiming="standardSdg">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-3 g-4">
+      <div class="col">
+      <div class="card h-100 mb-0">
+        <div class="card-body">
+          <p>
+            <img loading="lazy" src="/files/live/sites/isoorg/files/data/sdg/en/sdg-logo.png" class="img-fluid width-100pct rounded-0 mx-auto d-block" style="max-width: 250px;" alt="Sustainable Development Goals" />
+          </p>
+          <p>
+            This standard contributes to the following <a href="/sdg">Sustainable Development Goals</a><p>
+          <div class="clearfix d-flex justify-content-center flex-wrap">
+            <a href="/sdg/SDG01.html" title="No Poverty">
+                <div class="sdg sdg-sm sdg-01">
+                  <div class="sdg-icon"></div>
+                  <div class="sdg-label">1</div>
+                  <div class="sdg-text">No Poverty</div>
+                  <div class="sdg-logo"></div>
+                </div>
+              </a>
+            <a href="/sdg/SDG09.html" title="Industry, Innovation and Infrastructure">
+                <div class="sdg sdg-sm sdg-09">
+                  <div class="sdg-icon"></div>
+                  <div class="sdg-label">9</div>
+                  <div class="sdg-text">Industry, Innovation and Infrastructure</div>
+                  <div class="sdg-logo"></div>
+                </div>
+              </a>
+            <a href="/sdg/SDG12.html" title="Responsible Consumption and Production">
+                <div class="sdg sdg-sm sdg-12">
+                  <div class="sdg-icon"></div>
+                  <div class="sdg-label">12</div>
+                  <div class="sdg-text">Responsible Consumption and Production</div>
+                  <div class="sdg-logo"></div>
+                </div>
+              </a>
+            <a href="/sdg/SDG14.html" title="Life Below Water">
+                <div class="sdg sdg-sm sdg-14">
+                  <div class="sdg-icon"></div>
+                  <div class="sdg-label">14</div>
+                  <div class="sdg-text">Life Below Water</div>
+                  <div class="sdg-logo"></div>
+                </div>
+              </a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+<section class="bg-lightgray" id="contact" elementtiming="productHelp">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h4>Got a question?</h4>
+
+<p>Check out our <a href="/contact-iso.html" title="help-support">Help and Support</a></p></div>
+      <div class="col-md-4">
+        </div>
+      <div class="col-md-4">
+        </div>
+    </div>
+  </div>
+</section><div class="nav-breadcrumb print-footer bg-black">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-10 small" elementtiming="breadcrumb">
+              <!-- BREADCRUMB -->
+              <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/home.html" title="Home page"><i class="bi-house" aria-hidden="true"></i></a></li>
+    <li class="breadcrumb-item">
+          <a href="/store.html">Store</a>
+            </li>
+      <li class="breadcrumb-item">
+          <a href="/store.html" >Store</a>
+</li>
+      <li class="breadcrumb-item">
+          <a href="/standards-catalogue/browse-by-ics.html">ICS</a>
+            </li>
+      <li class="breadcrumb-item"><a href="/en/ics/03.html">03</a></li>
+    <li class="breadcrumb-item"><a href="/en/ics/03.100.html">03.100</a></li>
+    <li class="breadcrumb-item"><a href="/en/ics/03.100.70.html">03.100.70</a></li><li class="breadcrumb-item">ISO 9001:2015</li></ol></div>
+            <div class="col-sm-2 hidden-print text-end small mt-3 mt-sm-0">
+              <a role="button" class="dropdown-toggle text-white collapsed" data-bs-toggle="collapse" href="#collapseSitemap" target="_self" aria-expanded="false" aria-controls="collapseSitemap">Sitemap</a>
+            </div>
+          </div>
+
+          <div class="collapse border-top" id="collapseSitemap" elementtiming="sitemap">
+            <div class="row">
+              <!-- SITEMAP -->
+              <nav role="navigation" aria-label="Sitemap" class="sitemap-footer clearfix text-xs" id="nav-sitemap"><ul role='menubar' class='list-inline-6 clearfix nav-level1' ><li role='menuitem' class=' hasChildren firstInLevel' ><a class='nav-link   '   title="Covering almost every product, process or service imaginable, ISO makes standards used everywhere."  href='/standards.html'>Standards</a><ul role='menubar' class='list-unstyled nav-level2' ><li role='menuitem' class=' noChildren firstInLevel' ><a class='nav-link   '   title="Whether you run a business, work for a company or government, or you are a consumer looking for goods and services that meet customer expectations: Find out what standards can do for you."  href='/benefits-of-standards.html'>Benefits</a></li><!-- close of list item level 2 --><li role='menuitem' class=' noChildren' ><a class='nav-link   '   title="Here you can discover some of the best-known and most widely-used standards, as well as those that address recently emerged challenges affecting us all.
+
+"  href='/popular-standards.html'>Popular standards</a></li><!-- close of list item level 2 --><li role='menuitem' class=' noChildren' ><a class='nav-link   '   title="A set of processes that show your product, service or system meets the requirements of a standard."  href='/conformity-assessment.html'>Conformity assessment</a></li><!-- close of list item level 2 --><li role='menuitem' class=' noChildren lastInLevel' ><a class='nav-link   '   title="Organizations and companies looking to contribute to the SDGs will find that International Standards provide effective tools to help them rise to the challenge."  href='/sdg'>SDGs</a></li><!-- close of list item level 2 --></ul><!-- close of container level 2 --></li><!-- close of list item level 1 --><li role='menuitem' class=' hasChildren' ><a class='nav-link    disabled' data-bs-toggle="dropdown" aria-expanded="true"   href=''>Sectors</a><ul role='menubar' class='list-unstyled nav-level2' ><li role='menuitem' class=' noChildren firstInLevel' ><a class='nav-link   '   title="(including medicine and laboratory equipment)"  href='/sectors/health'>Health</a></li><!-- close of list item level 2 --><li role='menuitem' class=' noChildren' ><a class='nav-link   '   title="(including communication technology, graphics and photography)"  href='/sectors/it-technologies'>IT & related technologies</a></li><!-- close of list item level 2 --><li role='menuitem' class=' noChildren' ><a class='nav-link   '   title="(Business management, financial and professional services)"  href='/sectors/management-services'>Management & services</a></li><!-- close of list item level 2 --><li role='menuitem' class=' noChildren' ><a class='nav-link   '    href='/sectors/security-safety-risk'>Security, safety & risk</a></li><!-- close of list item level 2 --><li role='menuitem' class=' noChildren' ><a class='nav-link   '   title="(including vehicles, parts and infrastructure, freight, packaging and distribution)"  href='/sectors/transport'>Transport</a></li><!-- close of list item level 2 --><li role='menuitem' class=' noChildren' ><a class='nav-link   '   title="(including power generation and transport, fuels)"  href='/sectors/energy'>Energy</a></li><!-- close of list item level 2 --><li role='menuitem' class=' noChildren' ><a class='nav-link   '   title="Explore our Environmental sustainability sector."  href='/sectors/environment'>Environmental sustainability</a></li><!-- close of list item level 2 --><li role='menuitem' class=' noChildren' ><a class='nav-link   '   title="(Ores and metals, non-metallic materials, chemicals)"  href='/sectors/materials'>Materials</a></li><!-- close of list item level 2 --></ul><!-- close of container level 2 --></li><!-- close of list item level 1 --><li role='menuitem' class=' hasChildren' ><a class='nav-link   '   title="ISO brings together global experts to develop International Standards that help solve problems and drive innovation."  href='/about'>About ISO</a><ul role='menubar' class='list-unstyled nav-level2' ><li role='menuitem' class=' noChildren firstInLevel' ><a class='nav-link   '   title="Find out how we develop and publish international standards by bringing together more than 160 members and more than 45,000 experts"  href='/what-we-do.html'>What we do</a></li><!-- close of list item level 2 --><li role='menuitem' class=' noChildren' ><a class='nav-link   '    href='/structure.html'>Structure</a></li><!-- close of list item level 2 --><li role='menuitem' class=' noChildren' ><a class='nav-link   '   title="The members of the International Organization for Standardization are 177 national standards bodies, each representing ISO in their country."  href='/about/members'>Members</a></li><!-- close of list item level 2 --><li role='menuitem' class=' noChildren' ><a class='nav-link   '   title="Find out what's coming up and what you might have missed."  href='/events.html'>Events</a></li><!-- close of list item level 2 --><li role='menuitem' class=' noChildren' ><a class='nav-link   '   title="Making lives easier, safer and better. Our Strategy outlines our vision and our mission for the next 10 years and a set of goals and priorities to help us get there."  href='/strategy2030.html'>Strategy</a></li><!-- close of list item level 2 --></ul><!-- close of container level 2 --></li><!-- close of list item level 1 --><li role='menuitem' class=' hasChildren' ><a class='nav-link    disabled' data-bs-toggle="dropdown" aria-expanded="true"   href=''>Insights & news</a><ul role='menubar' class='list-unstyled nav-level2' ><li role='menuitem' class=' hasChildren firstInLevel' ><a class='nav-link    disabled'    href=''>Insights</a><ul role='menubar' class='list-unstyled nav-level3' ><li role='menuitem' class=' noChildren firstInLevel' ><a class='nav-link   '    href='/insights'>All insights</a></li><!-- close of list item level 3 (and more) --><li role='menuitem' class=' noChildren' ><a class='nav-link   '    href='/insights/filtered-list-healthcare'>Healthcare</a></li><!-- close of list item level 3 (and more) --><li role='menuitem' class=' noChildren' ><a class='nav-link   '    href='/insights/filtered-list-artificial-intelligence'>Artificial intelligence</a></li><!-- close of list item level 3 (and more) --><li role='menuitem' class=' noChildren' ><a class='nav-link   '    href='/insights/filtered-list-climate-change'>Climate change</a></li><!-- close of list item level 3 (and more) --><li role='menuitem' class=' noChildren lastInLevel' ><a class='nav-link   '    href='/home/insights-news/insights/transport.html'>Transport</a></li><!-- close of list item level 3 (and more) --></ul><!-- close of container level 3 (and more) --></li><!-- close of list item level 2 --><li role='menuitem' class=' hasChildren' ><a class='nav-link    disabled'    href=''>News</a><ul role='menubar' class='list-unstyled nav-level3' ><li role='menuitem' class=' noChildren firstInLevel' ><a class='nav-link   '    href='/insights/thought-leadership'>Expert talk</a></li><!-- close of list item level 3 (and more) --><li role='menuitem' class=' noChildren' ><a class='nav-link   '    href='/insights/standards-world'>Standards world</a></li><!-- close of list item level 3 (and more) --><li role='menuitem' class=' noChildren' ><a class='nav-link   '    href='/home/insights-news/news/dossier-medias.html'>Media kit</a></li><!-- close of list item level 3 (and more) --></ul><!-- close of container level 3 (and more) --></li><!-- close of list item level 2 --><li role='menuitem' class=' hasChildren lastInLevel' ><a class='nav-link    disabled'    href=''>Resources</a><ul role='menubar' class='list-unstyled nav-level3' ><li role='menuitem' class=' noChildren firstInLevel' ><a class='nav-link   '   title="ISO 22000 is the International Standard for food safety management systems. It helps organizations identify hazards, manage risks and demonstrate their ability to provide safe food consistently."  href='/home/insights-news/resources/iso-22000-explained.html'>ISO 22000 explained</a></li><!-- close of list item level 3 (and more) --><li role='menuitem' class=' noChildren' ><a class='nav-link   '   title="ISO 9001:2015 is the International Standard for quality management systems. It provides a framework that helps organizations deliver consistent products and services, improve efficiency and meet customer and regulatory expectations."  href='/home/insights-news/resources/iso-9001-explained.html'>ISO 9001 explained</a></li><!-- close of list item level 3 (and more) --><li role='menuitem' class=' noChildren' ><a class='nav-link   '   title="ISO 14001:2015 is the International Standard for environmental management systems. It helps organizations manage their environmental impacts, comply with applicable legal requirements, prevent pollution and improve environmental performance over time."  href='/home/insights-news/resources/iso-14001-explained.html'>ISO 14001 explained</a></li><!-- close of list item level 3 (and more) --><li role='menuitem' class=' noChildren' ><a class='nav-link   '   title="ISO/IEC 42001 is the International Standard for AI management systems. It provides requirements and guidance for organizations that develop, provide or use AI systems. "  href='/home/insights-news/resources/iso-42001-explained-what-it-is.html'>ISO 42001 explained</a></li><!-- close of list item level 3 (and more) --><li role='menuitem' class=' noChildren lastInLevel' ><a class='nav-link   '   title="ISO 45001:2018 is the International Standard for occupational health and safety management systems. It helps organizations provide safe and healthy workplaces by preventing work-related injury and ill health, managing risks, and continually improving OHS performance."  href='/home/insights-news/resources/iso-45001-explained-what-it-is.html'>ISO 45001 explained</a></li><!-- close of list item level 3 (and more) --></ul><!-- close of container level 3 (and more) --></li><!-- close of list item level 2 --></ul><!-- close of container level 2 --></li><!-- close of list item level 1 --><li role='menuitem' class=' hasChildren' ><a class='nav-link   '   title="Find out how the ISO process bring together global experts to create standards that are chosen the world over."  href='/developing-standards.html'>Taking part</a><ul role='menubar' class='list-unstyled nav-level2' ><li role='menuitem' class=' noChildren firstInLevel' ><a class='nav-link   '   title="ISO has put together groups of experts that represent every sector imaginable from soaps to spacecraft, MP3 to coffee. In fact there are more than 250 technical committees. You can find out what they do here."  href='/who-develops-standards.html'>Who develops standards</a></li><!-- close of list item level 2 --><li role='menuitem' class=' noChildren' ><a class='nav-link   '   title="The different types of ISO publications."  href='/deliverables-all.html'>Deliverables</a></li><!-- close of list item level 2 --><li role='menuitem' class=' noChildren' ><a class='nav-link   '    href='/get-involved.html'>Get involved</a></li><!-- close of list item level 2 --><li role='menuitem' class=' noChildren' ><a class='nav-link   '   title="The ISO Climate Action Kit is a collection of case studies from around the world on how standards can be effectively used as a tool for sustainability."  href='/ClimateAction.html'>Collaborating to accelerate effective climate action</a></li><!-- close of list item level 2 --><li role='menuitem' class=' hasChildren lastInLevel' ><a class='nav-link   '   title="Resources to support the work of individuals involved in standards development. "  href='/resources.html'>Resources</a><ul role='menubar' class='list-unstyled nav-level3' ><li role='menuitem' class=' noChildren' ><a class='nav-link   '    href='/drafting-standards.html'>Drafting standards</a></li><!-- close of list item level 3 (and more) --></ul><!-- close of container level 3 (and more) --></li><!-- close of list item level 2 --></ul><!-- close of container level 2 --></li><!-- close of list item level 1 --><li role='menuitem' class=' hasChildren inPath  lastInLevel' ><a class='nav-link   '   title="Are you looking to buy International Standards, guidelines, collections and checklists? They're all right here, in the ISO Store."  href='/store.html'>Store</a><ul role='menubar' class='list-unstyled nav-level2' ><li role='menuitem' class=' noChildren inPath  firstInLevel' ><a class='nav-link   '    href='/store.html'>Store</a></li><!-- close of list item level 2 --><li role='menuitem' class=' noChildren' ><a class='nav-link   '   title="ISO publications give insights and guidance into specific applications and show how standards add value."  href='/publication-list.html'>Publications and products</a></li><!-- close of list item level 2 --></ul><!-- close of container level 2 --></li><!-- close of list item level 1 --></ul><!-- close of container level 1 --></nav></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer id="footer" class="      bg-darkergray">
+  <div class="container">
+<div class="row text-center pt-3       " >
+<div class="col-md-12"><nav role="navigation" aria-label="Inline Navigation" class="" id=""><ul role='menubar' class='list-inline clearfix text-sm nav-level1' ><li role='menuitem' class=' noChildren firstInLevel' ><a class='nav-link   '    href='/iso-name-and-logo.html'>ISO name and logo</a></li><!-- close of list item level 1 --><li role='menuitem' class=' noChildren' ><a class='nav-link   '    href='/privacy.html'>Privacy Notice</a></li><!-- close of list item level 1 --><li role='menuitem' class=' noChildren' ><a class='nav-link   '    href='/copyright.html'>Copyright</a></li><!-- close of list item level 1 --><li role='menuitem' class=' noChildren' ><a class='nav-link   '    href='/cookies.html'>Cookie policy</a></li><!-- close of list item level 1 --><li role='menuitem' class=' noChildren' ><a class='nav-link   '    href='/media-kit.html'>Media kit</a></li><!-- close of list item level 1 --><li role='menuitem' class=' noChildren' ><a class='nav-link   '    href='/working-with-iso.html'>Jobs</a></li><!-- close of list item level 1 --><li role='menuitem' class=' noChildren' ><a class='nav-link   '    href='/contact-iso.html'>Help and support</a></li><!-- close of list item level 1 --></ul><!-- close of container level 1 --></nav></div></div><div class="row text-center row-middle-sm      " >
+<div class="col-md-12"><p class="lead opacity-100">Making lives&nbsp;<strong><em>easier</em></strong>,&nbsp;<strong><em>safer</em></strong>&nbsp;and&nbsp;<strong><em>better</em></strong>.</p></div></div><div id="newsletter" class="text-center sign-up d-flex gap-1 align-items-center justify-content-center text-sm opacity-75 mb-2     ">
+  <!-- Comment for testing purposes (branch: master) -->
+
+<a role="button" href="/insights/subscribe" class="btn btn-outline-light btn-sm ">Sign up</a>&nbsp;<div>for email updates</div></div><div itemscope="" itemtype="https://schema.org/Organization">&nbsp;</div>
+<link href="https://www.iso.org/" itemprop="url" />
+<ul class="list-inline social-links text-center">
+ <li><a href="https://www.linkedin.com/company/isostandards" itemprop="sameAs" rel="noopener" target="_blank" title="Linkedin"><i class="bi-linkedin"></i></a></li>
+ <li><a href="https://twitter.com/isostandards" itemprop="sameAs" rel="noopener" target="_blank" title="Twitter"><i class="bi-twitter"></i></a></li>
+ <li><a href="https://www.facebook.com/isostandards" itemprop="sameAs" rel="noopener" target="_blank" title="Facebook"><i class="bi-facebook"></i></a></li>
+ <li><a href="https://www.instagram.com/isostandards" itemprop="sameAs" rel="noopener" target="_blank" title="Instagram"><i class="bi-instagram"></i></a></li>
+ <li><a href="https://www.youtube.com/ISO" itemprop="sameAs" rel="noopener" target="_blank" title="YouTube"><i class="bi-youtube"></i></a></li>
+ <li><a href="https://www.vimeo.com/isostandards" itemprop="sameAs" rel="noopener" target="_blank" title="YouTube"><i class="bi-vimeo"></i></a></li>
+ <li><a href="https://www.flickr.com/photos/isostandards" itemprop="sameAs" rel="noopener" target="_blank" title="Flickr"><i class="bi-flickr"></i></a></li>
+</ul><div id="copyright-notice" class="row pb-3 row-bottom-sm      " >
+<div class="col-md-12"><details class="text-xs text-muted"><summary class="text-muted">&copy; All Rights Reserved</summary>
+<p class="pt-2">All ISO publications and materials are protected by copyright and are subject to the user&rsquo;s acceptance of ISO&rsquo;s conditions of copyright. Any use, including reproduction requires our written permission. All copyright requests should be addressed to <a href="mailto:copyright@iso.org">copyright@iso.org</a>.</p>
+<p>With the exception of the content available through the <a href="/open-data.html" title="open-data">ISO Open data</a>&nbsp;page and subject to the terms contained therein, no ISO content may be used for any machine learning and/or artificial intelligence and/or similar technologies, including but not limited to accessing or using it to (i) train data for large language or similar models, or (ii) prompt or otherwise enable artificial intelligence or similar tools to generate responses.</p>
+<p>We are committed to ensuring that our website is accessible to everyone. If you have any questions or suggestions regarding the accessibility of this site, please <a href="mailto:webmaster@iso.org?subject=Accessibility" style="white-space: nowrap">contact us</a>.</p>
+</details></div></div></div>
+</footer><!-- START OF MODAL (Buy ISO.ORG with OPTOUT) -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="iso-optout" aria-hidden="true" aria-labelledby="modalLabel">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="modalLabel">
+              Add to cart</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="modal-body clearfix">
+              <div id="modalOptOut"></div>
+              <div id="modalNoOptOut"></div>
+              <span id="proceedToCheckout" class="visually-hidden" data-label="Checkout"></span>
+              <span id="continueShopping" class="visually-hidden" data-label="Continue shopping"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END OF MODAL -->
+
+  </body>
+</html>
