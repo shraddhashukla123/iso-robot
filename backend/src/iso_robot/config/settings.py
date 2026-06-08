@@ -83,6 +83,14 @@ class Settings(BaseSettings):
         default=False,
         description="If True, run keyword heuristics when the LLM returns no controls. Default False — use LLM + retry only.",
     )
+    control_extraction_di_pages_per_batch: int = Field(
+        default=2,
+        description="When DI rejects a full PDF, analyze this many pages per DI call (streaming mode saves controls after each batch).",
+    )
+    control_extraction_min_local_chars: int = Field(
+        default=5000,
+        description="Prefer local PDF text over slow DI page-batching when at least this many characters are extractable locally.",
+    )
 
     def resolved_database_path(self) -> Path:
         return Path(self.database_path).expanduser().resolve()

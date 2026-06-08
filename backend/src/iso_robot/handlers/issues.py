@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import Annotated, Any, Optional
 
 import aiosqlite
-from fastapi import BackgroundTasks, Depends, File, Query, UploadFile
+from fastapi import BackgroundTasks, Depends, File, Query, UploadFile, Body
 
 from iso_robot.config import Settings
 from iso_robot.deps import get_app_settings, get_db, get_job_repo, get_org_repo
@@ -112,12 +112,18 @@ async def seed_issues_from_poc(
 
 
 async def issues_from_controls(
-    body: IssuesFromControlsRequest,
+    client_org_id: str,
     background_tasks: BackgroundTasks,
     jobs: Annotated[JobRepository, Depends(get_job_repo)],
+    org_repo: Annotated[OrgRepository, Depends(get_org_repo)],
+    body: IssuesFromControlsRequest = Body(default_factory=IssuesFromControlsRequest),
 ) -> JobResponse:
+    org = await org_repo.get_by_id(client_org_id)
+    if not org:
+        raise APIError("Organisation not found", code="CLIENT_ORG_NOT_FOUND", status_code=404)
+
     payload = {
-        "document_id": body.document_id,
+        "client_org_id": client_org_id,
         "replace_existing": body.replace_existing,
         "classify_after": body.classify_after,
         "sector_hint": body.sector_hint,

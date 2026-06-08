@@ -135,6 +135,15 @@ class ExtractControlsRequest(BaseModel):
     )
 
 
+class ExtractControlsForOrgRequest(BaseModel):
+    document_ids: Optional[List[str]] = Field(
+        default=None,
+        description="Optional subset of document UUIDs; default = all PDFs in org folder.",
+    )
+    tenant_id: Optional[str] = None
+    requested_by: Optional[str] = None
+
+
 class ClassifyIssuesRequest(BaseModel):
     issue_ids: Optional[List[str]] = Field(
         default=None,
@@ -143,10 +152,9 @@ class ClassifyIssuesRequest(BaseModel):
 
 
 class IssuesFromControlsRequest(BaseModel):
-    document_id: str = Field(..., description="Document UUID whose controls drive issue synthesis.")
     replace_existing: bool = Field(
         default=True,
-        description="Remove prior issues with origin=from_controls for this document before inserting.",
+        description="Remove prior issues with origin=from_controls for this organisation before inserting.",
     )
     classify_after: bool = Field(
         default=True,
@@ -350,3 +358,15 @@ class RiskResponse(BaseModel):
     risk_rating: Optional[str] = None
     risk_score: Optional[int] = None
     created_at: str
+
+
+class ScoreRisksRequest(BaseModel):
+    issue_ids: Optional[List[str]] = None
+    controls: Optional[List[str]] = None
+
+
+class RiskAssessmentResponse(BaseModel):
+    issue_id: str
+    model_version: Optional[str] = None
+    created_at: str
+    assessment: Dict[str, Any]

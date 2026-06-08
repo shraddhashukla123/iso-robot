@@ -40,7 +40,12 @@ router.add_api_route("/issues", issues.list_issues, methods=["GET"], tags=["issu
 router.add_api_route("/issues/seed-from-poc", issues.seed_issues_from_poc, methods=["POST"], tags=["issues"])
 router.add_api_route("/issues/import-csv", issues.import_issues_csv, methods=["POST"], tags=["issues"])
 router.add_api_route("/issues/classify", issues.classify_issues, methods=["POST"], tags=["issues"])
-router.add_api_route("/issues/from-controls", issues.issues_from_controls, methods=["POST"], tags=["issues"])
+router.add_api_route(
+    "/issues/from-controls/{client_org_id}",
+    issues.issues_from_controls,
+    methods=["POST"],
+    tags=["issues"],
+)
 router.add_api_route("/issues/stats/{client_org_id}", issues.issue_stats_for_org, methods=["GET"], tags=["issues"])
 router.add_api_route("/issues/{issue_id}", issues.get_issue, methods=["GET"], tags=["issues"])
 router.add_api_route(
@@ -62,6 +67,13 @@ router.add_api_route("/risk-library/seed-from-poc", risk.seed_risk_library_handl
 
 router.add_api_route("/candidate-risks", risk.list_candidate_risks, methods=["GET"], tags=["risk-discovery"])
 router.add_api_route("/risk-discovery/run", risk.run_risk_discovery, methods=["POST"], tags=["risk-discovery"])
+router.add_api_route("/risk-scoring/run", risk.run_risk_scoring, methods=["POST"], tags=["risk-scoring"])
+router.add_api_route(
+    "/issues/{issue_id}/risk-assessment",
+    risk.get_issue_risk_assessment,
+    methods=["GET"],
+    tags=["risk-scoring"],
+)
 
 router.add_api_route("/discovery-export", export.discovery_export, methods=["GET"], tags=["export"])
 

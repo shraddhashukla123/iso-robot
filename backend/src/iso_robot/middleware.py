@@ -7,7 +7,14 @@ from starlette.responses import JSONResponse, Response
 from iso_robot.helpers.auth import create_token, decode_token
 
 # Paths reachable WITHOUT a valid session.
-PUBLIC_EXACT = {"/health", "/api/v1/auth/login", "/api/v1/auth/register"}
+PUBLIC_EXACT = {
+    "/health",
+    "/api/v1/health",
+    "/auth/login",
+    "/auth/register",
+    "/api/v1/auth/login",
+    "/api/v1/auth/register",
+}
 PUBLIC_PREFIXES = ("/docs", "/redoc", "/openapi.json")
 
 

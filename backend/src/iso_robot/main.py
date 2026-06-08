@@ -11,6 +11,7 @@ from fastapi.responses import JSONResponse
 
 from iso_robot.config import get_settings
 from iso_robot.errors import APIError
+from iso_robot.handlers import auth
 from iso_robot.handlers.health import health
 from iso_robot.repositories.schema import ensure_schema
 from iso_robot.middleware import SessionValidationMiddleware
@@ -74,6 +75,9 @@ def create_app() -> FastAPI:
 
     app.add_api_route("/health", health, methods=["GET"], tags=["health"])
     app.include_router(v1_router, prefix="/api/v1")
+    # Convenience aliases (same handlers as /api/v1/auth/*) for clients that omit the prefix.
+    app.add_api_route("/auth/login", auth.login, methods=["POST"], tags=["auth"])
+    app.add_api_route("/auth/register", auth.register_user, methods=["POST"], tags=["auth"])
     return app
 
 

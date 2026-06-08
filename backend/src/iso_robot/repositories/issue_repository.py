@@ -107,6 +107,18 @@ class IssueRepository:
         await self._conn.commit()
         return int(cur.rowcount or 0)
 
+    async def delete_derived_for_org(self, client_org_id: str, *, origin: str = "from_controls") -> int:
+        cur = await self._conn.execute(
+            """
+            DELETE FROM issues
+            WHERE client_org_id = ?
+              AND json_extract(raw_payload_json, '$.origin') = ?
+            """,
+            (client_org_id, origin),
+        )
+        await self._conn.commit()
+        return int(cur.rowcount or 0)
+
     async def list_all(
         self,
         limit: int = 2000,

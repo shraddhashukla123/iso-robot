@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from typing import Annotated, List, Optional
+from typing import Annotated
 
-from fastapi import BackgroundTasks, Depends
+from fastapi import BackgroundTasks, Body, Depends
 
 from iso_robot.config import Settings
 from iso_robot.deps import (
@@ -28,7 +28,7 @@ from iso_robot.repositories.org_repository import (
     OrgRepository,
 )
 from iso_robot.repositories.control_repository import ControlRepository
-from iso_robot.schemas.api import ApiResponse, JobResponse
+from iso_robot.schemas.api import ApiResponse, ExtractControlsForOrgRequest
 from pathlib import Path
 
 
@@ -42,10 +42,11 @@ async def extract_controls_for_org(
     ctrl_doc_repo: Annotated[ControlDocumentRepository, Depends(get_control_document_repo)],
     audit_repo: Annotated[AuditLogRepository, Depends(get_audit_repo)],
     settings: Annotated[Settings, Depends(get_app_settings)],
-    document_ids: Optional[List[str]] = None,
-    tenant_id: Optional[str] = None,
-    requested_by: Optional[str] = None,
+    body: ExtractControlsForOrgRequest = Body(default_factory=ExtractControlsForOrgRequest),
 ) -> ApiResponse:
+    document_ids = body.document_ids
+    tenant_id = body.tenant_id
+    requested_by = body.requested_by
     """
     API 4: Extract controls — but ONLY from this organisation's folder.
 
