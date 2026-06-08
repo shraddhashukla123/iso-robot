@@ -8,6 +8,7 @@ from iso_robot.helpers.auth import create_token, decode_token
 
 # Paths reachable WITHOUT a valid session.
 PUBLIC_EXACT = {
+    "/",
     "/health",
     "/api/v1/health",
     "/auth/login",

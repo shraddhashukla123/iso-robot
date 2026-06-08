@@ -27,8 +27,15 @@ async def lifespan(app: FastAPI):
     db_path = settings.resolved_database_path()
     db_path.parent.mkdir(parents=True, exist_ok=True)
     async with aiosqlite.connect(str(db_path)) as conn:
+        conn.row_factory = aiosqlite.Row
+        await conn.execute("PRAGMA foreign_keys = ON")
         await ensure_schema(conn)
-        await repair_storage_paths(conn, settings)
+        try:
+            await repair_storage_paths(conn, settings)
+        except Exception:
+            logging.getLogger(__name__).exception(
+                "Storage path repair failed; continuing startup"
+            )
     yield
 
 
@@ -74,6 +81,15 @@ def create_app() -> FastAPI:
                 "code": "validation_error",
             },
         )
+
+    @app.get("/", tags=["health"])
+    async def root() -> dict[str, str]:
+        return {
+            "status": "ok",
+            "health": "/health",
+            "api": "/api/v1",
+            "docs": "/docs",
+        }
 
     app.add_api_route("/health", health, methods=["GET"], tags=["health"])
     app.include_router(v1_router, prefix="/api/v1")
